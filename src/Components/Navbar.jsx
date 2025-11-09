@@ -201,7 +201,7 @@ const Navbar = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  class="css-light-0"
+                  className="css-light-0"
                 >
                   <circle cx="12" cy="12" r="5"></circle>
                   <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -222,9 +222,9 @@ const Navbar = () => {
           {user && (
             <div>
               <img
-                className="size-12 rounded-full"
-                src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
-                alt=""
+                className="size-12 rounded-full object-cover"
+                src={user.photoURL}
+                alt="user"
               />
             </div>
           )}

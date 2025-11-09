@@ -1,11 +1,32 @@
-import React, { use } from "react";
-import { Link, useNavigate } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContex";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signInWithGoogle } = use(AuthContext);
+  const { signInUser, signInWithGoogle } = use(AuthContext);
+  const [err, setErr] = useState();
   const navigate = useNavigate();
+
+  const location = useLocation("");
+
+  // login user with email and password
+  const handleUserLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signInUser(email, password)
+      .then(() => {
+        toast.success("Loged In Successfully");
+        navigate(`${location.state ? location.state : "/"}`);
+      })
+      .catch((e) => {
+        setErr(e.message);
+        toast.error(e.message);
+      });
+  };
 
   // handle user google login
   const handleGoogleSignIn = () => {
@@ -20,16 +41,21 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">
           Login to Your Account
         </h2>
+        {/* error message */}
+        <p className="text-red-500 text-center">{err}</p>
 
-        <form className="space-y-4">
+        <form onSubmit={handleUserLogin} className="space-y-4">
+          {/* email */}
           <div>
             <label className="block text-sm font-medium ">Email</label>
             <input
               type="email"
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="you@example.com"
+              placeholder="Enter your Email"
+              name="email"
             />
           </div>
+          {/* password */}
 
           <div>
             <label className="block text-sm font-medium ">Password</label>
@@ -37,6 +63,7 @@ const Login = () => {
               type="password"
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="••••••••"
+              name="password"
             />
           </div>
 
