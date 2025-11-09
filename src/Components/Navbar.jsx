@@ -37,8 +37,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="shadow-sm">
-      <div className="flex justify-between min-h-16 bg-gray-900 items-center container2">
+    <div className="shadow-sm bg-gray-800">
+      <div className="flex justify-between min-h-16 items-center container2">
         <div className="flex gap-8 items-center">
           <Link to="/">
             <img className="w-[200px]" src={logo} alt="" />
@@ -215,7 +215,7 @@ const Navbar = () => {
             <Button>Login</Button>
           </Link>
           {/* register button */}
-          <Link to="auth/register">
+          <Link to="/auth/register">
             {" "}
             <Button>Register</Button>
           </Link>
