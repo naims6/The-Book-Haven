@@ -1,6 +1,19 @@
-import React from "react";
+import React, { use } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../../Provider/AuthContex";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { signInWithGoogle } = use(AuthContext);
+  const navigate = useNavigate();
+
+  // handle user google login
+  const handleGoogleSignIn = () => {
+    signInWithGoogle().then(() => {
+      toast.success("Succesfully Loged in with Google");
+      navigate(`${location.state ? location.state : "/"}`);
+    });
+  };
   return (
     <div className="h-[96vh] flex items-center justify-center bg-gray-900 text-gray-200">
       <div className="max-w-md w-full bg-gray-800 text-base-200 p-8 rounded shadow">
@@ -10,9 +23,7 @@ const Login = () => {
 
         <form className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-500">
-              Email
-            </label>
+            <label className="block text-sm font-medium ">Email</label>
             <input
               type="email"
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -21,9 +32,7 @@ const Login = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-500">
-              Password
-            </label>
+            <label className="block text-sm font-medium ">Password</label>
             <input
               type="password"
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -46,14 +55,15 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
           >
             Login
           </button>
 
           <button
+            onClick={handleGoogleSignIn}
             type="button"
-            className="w-full flex items-center justify-center border py-2 rounded-md transition"
+            className="w-full flex items-center justify-center border py-2 rounded-md transition cursor-pointer"
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -66,9 +76,9 @@ const Login = () => {
 
         <p className="mt-6 text-center text-sm text-naim">
           Don't have an account?{" "}
-          <a href="/register" className="text-blue-600 hover:underline">
+          <Link to="/auth/register" className="text-blue-600 hover:underline">
             Register
-          </a>
+          </Link>
         </p>
       </div>
     </div>
