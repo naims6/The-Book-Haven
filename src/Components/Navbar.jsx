@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../assets/logo-1.png";
 import Button from "./Button";
 import useTheme from "../hooks/useTheme";
+import { AuthContext } from "../Provider/AuthContex";
+import { toast } from "react-toastify";
 const Navbar = () => {
+  const { user, signOutUser } = use(AuthContext);
   const { theme, setTheme } = useTheme();
   const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
   // handle theme toggle
@@ -14,6 +17,17 @@ const Navbar = () => {
   // toggle theme dropdown
   const handleThemeDropdownOpen = () => {
     setIsThemeDropdownOpen((prev) => !prev);
+  };
+
+  // handle user signout
+  const handleSignOutUser = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("Logout Successfully");
+      })
+      .catch((e) => {
+        toast(e.message);
+      });
   };
   // lists
   const lists = (
@@ -36,12 +50,13 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div className="shadow-sm bg-gray-800">
       <div className="flex justify-between min-h-16 items-center container2">
         <div className="flex gap-8 items-center">
           <Link to="/">
-            <img className="w-[200px]" src={logo} alt="" />
+            <img className="w-[200px]" src={logo} alt="logo" />
           </Link>
           <ul className="flex gap-2.5">{lists}</ul>
         </div>
@@ -202,23 +217,36 @@ const Navbar = () => {
               </span>
             </div>
           </div>
+
           {/* profile image */}
-          <div>
-            <img
-              className="size-12 rounded-full"
-              src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
-              alt=""
-            />
-          </div>
-          {/* login button */}
-          <Link to="/auth/login">
-            <Button>Login</Button>
-          </Link>
-          {/* register button */}
-          <Link to="/auth/register">
-            {" "}
-            <Button>Register</Button>
-          </Link>
+          {user && (
+            <div>
+              <img
+                className="size-12 rounded-full"
+                src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+                alt=""
+              />
+            </div>
+          )}
+
+          {user ? (
+            <div onClick={handleSignOutUser}>
+              <Button>Logout</Button>
+            </div>
+          ) : (
+            <>
+              {" "}
+              {/* login button */}
+              <Link to="/auth/login">
+                <Button>Login</Button>
+              </Link>
+              {/* register button */}
+              <Link to="/auth/register">
+                {" "}
+                <Button>Register</Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
