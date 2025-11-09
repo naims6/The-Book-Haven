@@ -1,2 +1,23 @@
 @import "tailwindcss";
-@plugin "daisyui";
+/* @plugin "daisyui"; */
+
+/* custom css */
+.container2 {
+  @apply w-full max-w-[1400px] mx-auto;
+}
+body {
+  background: var(--color-gray-900);
+  color: var(--color-base-200);
+}
+
+[data-theme="light"] {
+  --color-gray-900: #ddd;
+  --color-base-200: #000;
+  --color-gray-500: #4a4a4a;
+}
+
+[data-theme="dark"] {
+  --color-gray-900: #0f0f0f;
+  --color-base-200: #fff;
+  --color-gray-500: #636262;
+}
