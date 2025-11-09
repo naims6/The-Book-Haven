@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Page404 from "../Pages/Error/Page404";
 
 export const router = createBrowserRouter([
   // main layout
@@ -35,5 +36,9 @@ export const router = createBrowserRouter([
         Component: Register,
       },
     ],
+  },
+  {
+    path: "/*",
+    Component: Page404,
   },
 ]);
