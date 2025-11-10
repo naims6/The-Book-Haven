@@ -1,6 +1,5 @@
 import React, { use, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
-import logo from "../assets/logo-1.png";
 import Button from "./Button";
 import useTheme from "../hooks/useTheme";
 import { AuthContext } from "../Provider/AuthContex";
@@ -43,16 +42,20 @@ const Navbar = () => {
   const lists = (
     <>
       <li>
-        <NavLink onClick={handleMenuToggle} to="/" className="px-8 py-3">
+        <NavLink
+          onClick={() => setIsMenuOpen(false)}
+          to="/"
+          className="px-8 py-3 lg:px-5"
+        >
           Home
         </NavLink>
       </li>
 
       <li>
         <NavLink
-          onClick={handleMenuToggle}
+          onClick={() => setIsMenuOpen(false)}
           to="/all-book"
-          className="px-8 py-3"
+          className="px-8 py-3 lg:px-5"
         >
           All Books
         </NavLink>
@@ -62,18 +65,18 @@ const Navbar = () => {
           {" "}
           <li>
             <NavLink
-              onClick={handleMenuToggle}
+              onClick={() => setIsMenuOpen(false)}
               to="/add-book"
-              className="px-8 py-3"
+              className="px-8 py-3 lg:px-5"
             >
               Add Book
             </NavLink>
           </li>
           <li>
             <NavLink
-              onClick={handleMenuToggle}
+              onClick={() => setIsMenuOpen(false)}
               to="/my-book"
-              className="px-8 py-3"
+              className="px-8 py-3 lg:px-5"
             >
               My Book
             </NavLink>
@@ -110,11 +113,15 @@ const Navbar = () => {
               <CiMenuBurger size={24} />
             </span>
           </div>
-          {/* logo and navbar lists */}
+          {/* logo */}
           <div className="flex gap-10 items-center">
             <Link to="/">
-              <img className="w-[120px] lg:w-[180px]" src={logo} alt="logo" />
+              <h1 className="text-3xl">📚 Book.io</h1>
+              {/* <img className="w-[120px] lg:w-[180px]" src={logo} alt="logo" /> */}
             </Link>
+          </div>
+          {/* navbar lists */}
+          <div>
             <ul className="hidden lg:flex">{lists}</ul>
           </div>
           {/* end functionality login,logout, register, theme toggle, profile image */}
