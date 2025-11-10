@@ -147,7 +147,7 @@ const Navbar = () => {
             <div
               className={` ${
                 isThemeDropdownOpen ? "flex" : "hidden"
-              } absolute top-6 left-0 flex-col bg-gray-900 rounded-sm border border-gray-500 space-y-2`}
+              } absolute z-50 top-6 left-0 flex-col bg-gray-900 rounded-sm border border-gray-500 space-y-2`}
             >
               <span
                 onClick={() => handleThemeToggle("system")}
@@ -240,11 +240,11 @@ const Navbar = () => {
           )}
 
           {user ? (
-            <div onClick={handleSignOutUser}>
+            <div className="flex items-center" onClick={handleSignOutUser}>
               <Button>Logout</Button>
             </div>
           ) : (
-            <>
+            <div className="flex items-center">
               {" "}
               {/* login button */}
               <Link to="/auth/login">
@@ -255,7 +255,7 @@ const Navbar = () => {
                 {" "}
                 <Button>Register</Button>
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>
