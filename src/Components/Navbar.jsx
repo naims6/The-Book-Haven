@@ -114,10 +114,9 @@ const Navbar = () => {
             </span>
           </div>
           {/* logo */}
-          <div className="flex gap-10 items-center">
-            <Link to="/">
-              <h1 className="text-3xl">📚 Book.io</h1>
-              {/* <img className="w-[120px] lg:w-[180px]" src={logo} alt="logo" /> */}
+          <div className="flex flex-1 justify-center items-center">
+            <Link to="/" className="text-center">
+              <h1 className="text-3xl text-center">📚 Book.io</h1>
             </Link>
           </div>
           {/* navbar lists */}
@@ -312,7 +311,7 @@ const Navbar = () => {
                 <Button>Logout</Button>
               </div>
             ) : (
-              <div className="flex gap-3 items-center">
+              <div className="hidden lg:flex gap-3 items-center">
                 {" "}
                 {/* login button */}
                 <Link to="/auth/login">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router";
+import Button from "./Button";
 
 const MobileNavMenu = ({
   lists,
@@ -51,9 +52,9 @@ const MobileNavMenu = ({
           <>
             {" "}
             <div className="w-full">
-              <button onClick={handleSignOutUser} className="w-full">
-                Logout
-              </button>
+              <span onClick={handleSignOutUser} className="w-full">
+                <Button>Logout</Button>
+              </span>
             </div>
           </>
         ) : (
@@ -65,7 +66,7 @@ const MobileNavMenu = ({
                 to="/auth/login"
                 className="btn btn-secondary w-full"
               >
-                Login
+                <Button>Login</Button>
               </Link>
             </div>
             <div className="w-full">
@@ -74,7 +75,7 @@ const MobileNavMenu = ({
                 to="/auth/signup"
                 className="btn bg-gray-900 w-full text-white"
               >
-                Sign Up
+                <Button>Register</Button>
               </Link>
             </div>
           </>
