@@ -1,4 +1,5 @@
 import React from "react";
+import Title2 from "../../Components/Title2";
 
 const genres = [
   {
@@ -27,7 +28,7 @@ const TopGenres = () => {
   return (
     <section className="py-10 md:px-10 bg-white dark:bg-gray-900">
       <div className="container2">
-        <h2 className="text-3xl font-bold  mb-8 text-center">Top Genres</h2>
+        <Title2>Top Genres</Title2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {genres.map((genre, index) => (
