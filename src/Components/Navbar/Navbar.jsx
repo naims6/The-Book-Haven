@@ -9,8 +9,9 @@ import MobileNavMenu from "./MobileNavMenu";
 import toast from "react-hot-toast";
 import NavProfile from "./NavProfile";
 import NavTheme from "./NavTheme";
+import NavbarSkeleton from "./NavbarSkeleton";
 const Navbar = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, loading, signOutUser } = use(AuthContext);
   const { theme, setTheme } = useTheme();
   const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -105,6 +106,10 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isMenuOpen]);
 
+  // loading time..
+  if (loading) {
+    return <NavbarSkeleton />;
+  }
   return (
     <>
       <div className="fixed w-full left-0 top-0 z-20 shadow-md bg-gray-800/70 backdrop-blur-md">
