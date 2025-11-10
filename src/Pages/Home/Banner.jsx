@@ -56,7 +56,7 @@ const Banner = () => {
               </div>
             </div>
             {/* overlay */}
-            <div className="bg-black/40 absolute inset-0 z-5"></div>
+            <div className="lg:hidden bg-black/30 absolute inset-0 z-5"></div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -87,7 +87,7 @@ const Banner = () => {
               </div>
             </div>
             {/* overlay */}
-            <div className="bg-black/40 absolute inset-0 z-5"></div>
+            <div className="lg:hidden bg-black/30 absolute inset-0 z-5"></div>
           </div>
         </SwiperSlide>
       </Swiper>
