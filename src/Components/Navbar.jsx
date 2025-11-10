@@ -4,9 +4,10 @@ import logo from "../assets/logo-1.png";
 import Button from "./Button";
 import useTheme from "../hooks/useTheme";
 import { AuthContext } from "../Provider/AuthContex";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { CiMenuBurger } from "react-icons/ci";
 import MobileNavMenu from "./MobileNavMenu";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const { theme, setTheme } = useTheme();

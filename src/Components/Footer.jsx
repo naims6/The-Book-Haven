@@ -26,9 +26,7 @@ const Footer = () => {
             <span>
               <FaFacebookF size={22} />
             </span>
-            <span>
-              <FaTwitter size={22} />
-            </span>
+
             <span>
               <FaLinkedin size={22} />
             </span>

@@ -1,8 +1,9 @@
 import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContex";
-import { toast } from "react-toastify";
+
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   // getting data from context
@@ -59,7 +60,7 @@ const Register = () => {
             navigate("/");
           })
           .catch((e) => {
-            toast(e.message);
+            toast.error(e.message);
           });
       })
       .catch((e) => {
