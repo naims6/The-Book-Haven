@@ -114,9 +114,11 @@ const Navbar = () => {
             </span>
           </div>
           {/* logo */}
-          <div className="flex flex-1 justify-center items-center">
+          <div className="flex flex-1 lg:flex-0 justify-center items-center">
             <Link to="/" className="text-center">
-              <h1 className="text-3xl text-center">📚 Book.io</h1>
+              <h1 className="text-3xl text-center whitespace-nowrap">
+                📚 Book.io
+              </h1>
             </Link>
           </div>
           {/* navbar lists */}
@@ -136,8 +138,8 @@ const Navbar = () => {
                     role="img"
                     aria-label="computer monitor"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="1.5em"
-                    height="1.5em"
+                    width="1.3em"
+                    height="1.3em"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -162,8 +164,8 @@ const Navbar = () => {
                     role="img"
                     aria-label="Crescent moon"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="1.5em"
-                    height="1.5em"
+                    width="1.3em"
+                    height="1.3em"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -179,8 +181,8 @@ const Navbar = () => {
                     role="img"
                     aria-label="Sun"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="1.5em"
-                    height="1.5em"
+                    width="1.3em"
+                    height="1.3em"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -204,11 +206,11 @@ const Navbar = () => {
               <div
                 className={` ${
                   isThemeDropdownOpen ? "flex" : "hidden"
-                } absolute z-50 top-6 left-0 flex-col bg-gray-900 rounded-sm border border-gray-500 space-y-2`}
+                } absolute z-50 top-6 left-1/2 -translate-x-1/2 flex-col bg-gray-900 rounded-md border border-gray-500 space-y-2`}
               >
                 <span
                   onClick={() => handleThemeToggle("system")}
-                  className="border-b border-gray-500 px-5 py-2 cursor-pointer flex gap-1.5 items-center"
+                  className="border-b border-gray-500 pl-3 pr-7 py-2 cursor-pointer flex gap-1.5 items-center text-left"
                 >
                   <svg
                     role="img"
@@ -239,7 +241,7 @@ const Navbar = () => {
                 </span>
                 <span
                   onClick={() => handleThemeToggle("dark")}
-                  className="border-b border-gray-500 px-5 py-2 cursor-pointer flex gap-1.5 items-center"
+                  className="border-b border-gray-500 pl-3 pr-7 py-2 cursor-pointer flex gap-1.5 items-center"
                 >
                   <svg
                     role="img"
@@ -261,7 +263,7 @@ const Navbar = () => {
                 </span>
                 <span
                   onClick={() => handleThemeToggle("light")}
-                  className="px-5 cursor-pointer py-2 flex gap-1.5 items-center"
+                  className="cursor-pointer pl-3 pr-7 py-2 flex gap-1.5 items-center"
                 >
                   <svg
                     role="img"
