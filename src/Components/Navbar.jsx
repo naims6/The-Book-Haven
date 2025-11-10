@@ -130,8 +130,8 @@ const Navbar = () => {
                     role="img"
                     aria-label="computer monitor"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
+                    width="1.5em"
+                    height="1.5em"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -156,8 +156,8 @@ const Navbar = () => {
                     role="img"
                     aria-label="Crescent moon"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
+                    width="1.5em"
+                    height="1.5em"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -173,8 +173,8 @@ const Navbar = () => {
                     role="img"
                     aria-label="Sun"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
+                    width="1.5em"
+                    height="1.5em"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -202,7 +202,7 @@ const Navbar = () => {
               >
                 <span
                   onClick={() => handleThemeToggle("system")}
-                  className="border-b border-gray-500 px-5 py-2 cursor-pointer flex gap-1 items-center"
+                  className="border-b border-gray-500 px-5 py-2 cursor-pointer flex gap-1.5 items-center"
                 >
                   <svg
                     role="img"
@@ -233,7 +233,7 @@ const Navbar = () => {
                 </span>
                 <span
                   onClick={() => handleThemeToggle("dark")}
-                  className="border-b border-gray-500 px-5 py-2 cursor-pointer flex gap-1 items-center"
+                  className="border-b border-gray-500 px-5 py-2 cursor-pointer flex gap-1.5 items-center"
                 >
                   <svg
                     role="img"
@@ -255,7 +255,7 @@ const Navbar = () => {
                 </span>
                 <span
                   onClick={() => handleThemeToggle("light")}
-                  className="px-5 cursor-pointer py-2 flex gap-1 items-center"
+                  className="px-5 cursor-pointer py-2 flex gap-1.5 items-center"
                 >
                   <svg
                     role="img"
@@ -305,7 +305,7 @@ const Navbar = () => {
                 <Button>Logout</Button>
               </div>
             ) : (
-              <div className="flex items-center">
+              <div className="flex gap-3 items-center">
                 {" "}
                 {/* login button */}
                 <Link to="/auth/login">

@@ -45,7 +45,7 @@ const Banner = () => {
                   </p>
                 </div>
                 {/* actions button all book and create book */}
-                <div className="flex">
+                <div className="flex gap-3">
                   <Link to="/all-book">
                     <Button>All Books</Button>
                   </Link>
@@ -76,7 +76,7 @@ const Banner = () => {
                   </p>
                 </div>
                 {/* actions button all book and create book */}
-                <div className="flex">
+                <div className="flex gap-3">
                   <Link to="/all-book">
                     <Button>All Books</Button>
                   </Link>
