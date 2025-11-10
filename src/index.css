@@ -5,6 +5,9 @@
 .container2 {
   @apply w-full max-w-[1400px] mx-auto;
 }
+.active {
+  @apply font-bold;
+}
 body {
   background: var(--color-gray-900);
   color: var(--color-gray-200);

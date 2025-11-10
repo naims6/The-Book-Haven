@@ -39,26 +39,36 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink to="/aboutus" className="">
-          About Us
+        <NavLink to="/all-book" className="">
+          All Books
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/contact" className="">
-          Contact
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          {" "}
+          <li>
+            <NavLink to="/add-book" className="">
+              Add Book
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-book" className="">
+              My Book
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
   return (
     <div className="shadow-sm bg-gray-800">
       <div className="flex justify-between min-h-16 items-center container2">
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-10 items-center">
           <Link to="/">
             <img className="w-[200px]" src={logo} alt="logo" />
           </Link>
-          <ul className="flex gap-2.5">{lists}</ul>
+          <ul className="flex gap-8">{lists}</ul>
         </div>
         <div className="navbar-center hidden lg:flex">
           {/* <ul className="menu menu-horizontal px-1">{lists}</ul> */}

@@ -5,6 +5,10 @@ import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Page404 from "../Pages/Error/Page404";
+import MyBook from "../Pages/MyBook/MyBook";
+import AddBook from "../Pages/AddBook/AddBook";
+import AllBook from "../Pages/AllBook/AllBook";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   // main layout
@@ -15,6 +19,26 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "/all-book",
+        Component: AllBook,
+      },
+      {
+        path: "/my-book",
+        element: (
+          <PrivateRoute>
+            <MyBook></MyBook>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/add-book",
+        element: (
+          <PrivateRoute>
+            <AddBook></AddBook>
+          </PrivateRoute>
+        ),
       },
     ],
   },
