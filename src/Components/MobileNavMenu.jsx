@@ -72,7 +72,7 @@ const MobileNavMenu = ({
             <div className="w-full">
               <Link
                 onClick={() => setIsMenuOpen(false)}
-                to="/auth/signup"
+                to="/auth/register"
                 className="btn bg-gray-900 w-full text-white"
               >
                 <Button>Register</Button>
