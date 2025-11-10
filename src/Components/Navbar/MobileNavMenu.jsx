@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router";
-import Button from "./Button";
+import Button from "../Button";
 
 const MobileNavMenu = ({
   lists,
@@ -35,13 +35,16 @@ const MobileNavMenu = ({
       ref={mobileNavMenuRef}
       className={`lg:hidden fixed w-full max-w-[300px] bg-gray-900 ${
         isMenuOpen ? "left-0" : "-left-[90%]"
-      }  top-0 h-screen z-20 flex flex-col transition-all duration-300 `}
+      }  top-0 h-screen z-20 flex flex-col transition-all duration-300 pt-8`}
     >
       {/* header of menu */}
-      <div className="flex justify-between items-center pt-8 px-8">
-        <h2 className="text-2xl font-medium">The Book Haven</h2>
-        <span onClick={() => setIsMenuOpen(false)} className="cursor-pointer">
-          <RxCross1 size={18} />
+      <div
+        onClick={() => setIsMenuOpen(false)}
+        className="flex gap-5 justify-end items-center py-3 px-8 bg-green-700 text-white"
+      >
+        <h2 className="text-2xl font-medium">Close</h2>
+        <span className="cursor-pointer">
+          <RxCross1 size={22} color="#fff" />
         </span>
       </div>
       {/* middle of menu*/}
