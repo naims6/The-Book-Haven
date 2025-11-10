@@ -10,7 +10,7 @@ import { Link } from "react-router";
 import logo from "../assets/logo-1.png";
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-base-200 px-10 pb-10 pt-14">
+    <footer className="bg-gray-800 text-base-200 pb-10 pt-14">
       <div className="footer flex flex-col lg:flex-row justify-between space-y-6 container2 pb-10">
         <aside className="max-w-[320px]">
           <Link to={"/"} className="text-2xl font-bold flex items-center">

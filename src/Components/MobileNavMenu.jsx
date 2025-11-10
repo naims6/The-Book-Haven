@@ -6,12 +6,13 @@ const MobileNavMenu = ({
   lists,
   isMenuOpen,
   setIsMenuOpen,
-  handleLogoutUser,
-  userInfo,
+  handleSignOutUser,
+  user,
   mobileNavMenuRef,
 }) => {
   const [startX, setStartX] = useState(0);
 
+  // touch to hide mobile navbar
   const handleNavTouchStart = (e) => {
     // console.log(e.touches[0].clientX);
     setStartX(e.touches[0].clientX);
@@ -25,18 +26,19 @@ const MobileNavMenu = ({
       setIsMenuOpen(false);
     }
   };
+
   return (
     <div
       onTouchStart={handleNavTouchStart}
       onTouchMove={handleNavTouchMove}
       ref={mobileNavMenuRef}
-      className={`lg:hidden fixed w-full max-w-[300px] bg-[#FFF7EE] ${
+      className={`lg:hidden fixed w-full max-w-[300px] bg-gray-900 ${
         isMenuOpen ? "left-0" : "-left-[90%]"
       }  top-0 h-screen z-20 flex flex-col transition-all duration-300 `}
     >
       {/* header of menu */}
       <div className="flex justify-between items-center pt-8 px-8">
-        <h2 className="text-2xl font-medium">TOY BAZAAR</h2>
+        <h2 className="text-2xl font-medium">The Book Haven</h2>
         <span onClick={() => setIsMenuOpen(false)} className="cursor-pointer">
           <RxCross1 size={18} />
         </span>
@@ -45,14 +47,11 @@ const MobileNavMenu = ({
       <ul className="flex-1 space-y-2 pt-6 w-full">{lists}</ul>
       {/* end  of menu*/}
       <div className="flex justify-between items-center gap-4 px-8 py-8 w-full overflow-hidden">
-        {userInfo ? (
+        {user ? (
           <>
             {" "}
             <div className="w-full">
-              <button
-                onClick={handleLogoutUser}
-                className="btn btn-secondary w-full"
-              >
+              <button onClick={handleSignOutUser} className="w-full">
                 Logout
               </button>
             </div>
