@@ -2,15 +2,30 @@ import { Star, Calendar, User } from "lucide-react";
 import { use } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../../Provider/AuthContex";
+import useAxios from "../../hooks/useAxios";
+import toast from "react-hot-toast";
 
-function BookCard({ book }) {
+function BookCard({ book, setBooks }) {
   const { user } = use(AuthContext);
-  const { title, coverImage, genre, createdAt, rating, author } = book;
+
+  const axiosInstance = useAxios();
+  const { _id, title, coverImage, genre, createdAt, rating, author } = book;
   const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
+
+  const handleBookDelete = () => {
+    axiosInstance.delete(`/book-delete/${_id}`).then((data) => {
+      console.log(data.data);
+      if (data.data.deletedCount) {
+        toast.success("Your Book Deleted");
+
+        setBooks((prev) => prev.filter((b) => b._id !== _id));
+      }
+    });
+  };
 
   return (
     <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300 pt-2">
@@ -65,7 +80,7 @@ function BookCard({ book }) {
                 Update
               </Link>
               <Link
-                to={`/book-delete/${book._id}`}
+                onClick={handleBookDelete}
                 className="bg-red-500 font-semibold px-4 hover:bg-red-700 text-white text-center py-2.5 rounded-lg transition-colors duration-200 cursor-pointer w-1/2"
               >
                 Delete

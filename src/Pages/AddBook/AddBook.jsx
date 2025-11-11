@@ -45,6 +45,7 @@ function AddBook() {
         if (data.data.insertedId) {
           toast.success("Book added successfully!");
           navigate("/all-books");
+          setLoading(false);
         }
       })
       .catch((error) => {

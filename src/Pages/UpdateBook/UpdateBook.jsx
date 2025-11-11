@@ -170,7 +170,7 @@ function UpdateBook() {
             disabled={loading}
             className="w-full bg-indigo-600 hover:bg-indigo-700 cursor-pointer text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
           >
-            {loading ? "Adding..." : "Add Book"}
+            {loading ? "Updating..." : "Update Book"}
           </button>
         </div>
       </form>

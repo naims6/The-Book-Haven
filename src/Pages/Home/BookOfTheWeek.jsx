@@ -30,7 +30,7 @@ export default function BookGrid() {
       author: "Glenna Berge",
       price: 100.0,
       originalPrice: null,
-      image: "https://i.ibb.co.com/35XmHJMY/cate-2.jpg",
+      image: "https://i.ibb.co.com/pjshvggV/cup-cake-diares-9-480x693.jpg",
       discount: null,
       rating: 0,
     },
