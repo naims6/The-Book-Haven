@@ -24,6 +24,9 @@ function BookDetailsPage() {
     return <BookDetailsSkeleton />;
   }
 
+  if (!book) {
+    return <h1 className="mt-22 text-center text-3xl ">No Book Found</h1>;
+  }
   return (
     <div className="mt-16">
       {/* Main content */}

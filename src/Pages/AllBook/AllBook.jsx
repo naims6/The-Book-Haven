@@ -32,7 +32,9 @@ const AllBook = () => {
           ? Array.from({ length: 8 }).map((_, i) => (
               <BookCardSkeleton key={i} />
             ))
-          : books.map((book) => <BookCard key={book._id} book={book} />)}
+          : books.map((book) => (
+              <BookCard key={book._id} book={book} setBooks={setBooks} />
+            ))}
       </div>
     </div>
   );

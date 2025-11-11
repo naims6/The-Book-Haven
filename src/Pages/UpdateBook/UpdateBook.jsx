@@ -42,7 +42,7 @@ function UpdateBook() {
       .then((data) => {
         if (data.data) {
           toast.success("Book Updated successfully!");
-          navigate("/all-books");
+          navigate("/my-book");
         }
       })
       .catch((error) => {

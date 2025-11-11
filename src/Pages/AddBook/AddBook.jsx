@@ -44,7 +44,7 @@ function AddBook() {
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Book added successfully!");
-          navigate("/all-books");
+          navigate("/my-book");
           setLoading(false);
         }
       })
