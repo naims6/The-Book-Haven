@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Title2 from "../../Components/Title2";
 import BookCard from "./BookCard";
-import { useLoaderData } from "react-router";
+import BookCardSkeleton from "./BookCardSkeleton";
+import useAxios from "../../hooks/useAxios";
+import Title2Skeleton from "../../Components/Title2Skeleton";
 
 const AllBook = () => {
-  const books = useLoaderData();
-  console.log(books);
+  const axiosInstance = useAxios();
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch data client-side
+  useEffect(() => {
+    setTimeout(() => {
+      axiosInstance
+        .get("/all-books")
+        .then((data) => {
+          setBooks(data.data);
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    }, 500);
+  }, [axiosInstance]);
+
   return (
-    <div className="mt-16">
-      <Title2>All Books</Title2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {/* {books.map((book) => (
-                <BookCard book={book}/>
-              ))} */}
+    <div className="mt-16 py-10">
+      {loading ? <Title2Skeleton /> : <Title2>All Books</Title2>}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container2">
+        {loading
+          ? Array.from({ length: 8 }).map((_, i) => (
+              <BookCardSkeleton key={i} />
+            ))
+          : books.map((book) => <BookCard key={book._id} book={book} />)}
       </div>
     </div>
   );

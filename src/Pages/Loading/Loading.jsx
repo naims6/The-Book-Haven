@@ -1,9 +1,12 @@
 import React from "react";
 import { SquareLoader } from "react-spinners";
+import useTheme from "../../hooks/useTheme";
 const Loading = () => {
+  const { theme } = useTheme();
+
   return (
-    <div>
-      <SquareLoader />
+    <div className="text-center">
+      <SquareLoader color={`${theme === "dark" ? "#fff" : "#000"}`} />
     </div>
   );
 };
