@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxios from "../../hooks/useAxios";
 import { useParams } from "react-router";
 import BookDetailsSkeleton from "./BookDetailsSkeleton";
+import Comment from "./Comment";
 
 function BookDetailsPage() {
   const axiosInstance = useAxios();
@@ -27,6 +28,7 @@ function BookDetailsPage() {
   if (!book) {
     return <h1 className="mt-22 text-center text-3xl ">No Book Found</h1>;
   }
+
   return (
     <div className="mt-16">
       {/* Main content */}
@@ -101,6 +103,9 @@ function BookDetailsPage() {
             </div>
           </div>
         </div>
+
+        {/* Comments Section */}
+        <Comment bookId={id} />
       </div>
     </div>
   );
