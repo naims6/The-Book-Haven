@@ -1,21 +1,21 @@
 import React, { use } from "react";
 import axios from "axios";
 import Title from "../../Components/Title";
-
+import { Link } from "react-router";
 const fetcher = axios
   .get("http://localhost:3000/latest-books")
   .then((data) => data.data);
 const LatestBooks = () => {
-  // console.log(fetcher);
   const latestBooks = use(fetcher);
-  console.log(latestBooks);
   return (
     <div className="container2 py-20">
       <div className="flex justify-between items-center">
         <Title>Latest Books</Title>
-        <h2 className="text-base underline text-[#16513F]  dark:text-green-400 cursor-pointer">
-          View All
-        </h2>
+        <Link to="/all-books">
+          <h2 className="text-base underline text-[#16513F]  dark:text-green-400 cursor-pointer">
+            View All
+          </h2>
+        </Link>
       </div>
       <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {latestBooks.map((book) => (

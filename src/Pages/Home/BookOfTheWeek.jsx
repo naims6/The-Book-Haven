@@ -1,4 +1,4 @@
-// import { Heart, ShoppingCart, Eye } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 import Title2 from "../../Components/Title2";
 
@@ -114,7 +114,7 @@ export default function BookGrid() {
                 )}
 
                 <button className="px-4 py-2.5 cursor-pointer bg-teal-600 text-white text-xs font-medium rounded hover:bg-teal-700 transition-colors flex items-center gap-1">
-                  {/* <ShoppingCart className="w-3.5 h-3.5" /> */}
+                  <ShoppingCart className="w-3.5 h-3.5" />
                   ADD TO CART
                 </button>
               </div>

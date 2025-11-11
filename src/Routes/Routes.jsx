@@ -9,6 +9,7 @@ import MyBook from "../Pages/MyBook/MyBook";
 import AddBook from "../Pages/AddBook/AddBook";
 import AllBook from "../Pages/AllBook/AllBook";
 import PrivateRoute from "./PrivateRoute";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   // main layout
@@ -21,8 +22,9 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/all-book",
+        path: "/all-books",
         Component: AllBook,
+        loader: () => axios.get("http://localhost:3000/all-books"),
       },
       {
         path: "/my-book",

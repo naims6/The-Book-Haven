@@ -57,7 +57,7 @@ const Navbar = () => {
       <li>
         <NavLink
           onClick={() => setIsMenuOpen(false)}
-          to="/all-book"
+          to="/all-books"
           className="px-8 py-3 lg:px-5"
         >
           All Books

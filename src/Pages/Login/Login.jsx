@@ -7,7 +7,6 @@ const Login = () => {
   const { signInUser, signInWithGoogle } = use(AuthContext);
   const [err, setErr] = useState();
   const navigate = useNavigate();
-
   const location = useLocation("");
 
   // login user with email and password
@@ -19,12 +18,38 @@ const Login = () => {
 
     signInUser(email, password)
       .then(() => {
-        toast.success("Loged In Successfully");
-        navigate(`${location.state ? location.state : "/"}`);
+        toast.success("Logged in successfully!");
+        navigate(location.state ? location.state : "/");
       })
-      .catch((e) => {
-        setErr(e.message);
-        toast.error(e.message);
+      .catch((error) => {
+        let errorMessage = "";
+        console.log(error.code);
+        console.log(error);
+
+        switch (error.code) {
+          case "auth/invalid-credential":
+          case "auth/wrong-password":
+            errorMessage = "Incorrect email or password.";
+            break;
+
+          case "auth/user-not-found":
+            errorMessage = "No account found with this email.";
+            break;
+
+          case "auth/too-many-requests":
+            errorMessage = "Too many failed attempts. Please try again later.";
+            break;
+
+          case "auth/invalid-email":
+            errorMessage = "Invalid email format.";
+            break;
+
+          default:
+            errorMessage = "Something went wrong. Please try again.";
+        }
+
+        setErr(errorMessage);
+        toast.error(errorMessage);
       });
   };
 
@@ -54,6 +79,7 @@ const Login = () => {
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your Email"
               name="email"
+              required
             />
           </div>
           {/* password */}
@@ -65,6 +91,7 @@ const Login = () => {
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="••••••••"
               name="password"
+              required
             />
           </div>
 
