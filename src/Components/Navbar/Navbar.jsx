@@ -110,6 +110,7 @@ const Navbar = () => {
   if (loading) {
     return <NavbarSkeleton />;
   }
+
   return (
     <>
       <div className="fixed w-full left-0 top-0 z-20 shadow-md bg-gray-800/70 backdrop-blur-md">

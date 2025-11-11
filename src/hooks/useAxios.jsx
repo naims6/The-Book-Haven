@@ -1,11 +1,14 @@
+import { useMemo } from "react";
 import axios from "axios";
 
 const useAxios = () => {
-  const instanceAxios = axios.create({
-    baseURL: "http://localhost:3000",
-  });
+  const axiosInstance = useMemo(() => {
+    return axios.create({
+      baseURL: "http://localhost:3000",
+    });
+  }, []);
 
-  return instanceAxios;
+  return axiosInstance;
 };
 
 export default useAxios;

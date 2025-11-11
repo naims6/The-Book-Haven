@@ -1,4 +1,5 @@
 import { Star, Calendar, User } from "lucide-react";
+import { Link } from "react-router";
 
 function BookCard({ book }) {
   const { title, coverImage, genre, createdAt, rating, author } = book;
@@ -43,12 +44,11 @@ function BookCard({ book }) {
           <span>Added {formattedDate}</span>
         </div>
 
-        <button
-          //   onClick={onViewDetails}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200 cursor-pointer"
-        >
-          View Details
-        </button>
+        <Link to={`/book-details/${book._id}`}>
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200 cursor-pointer">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
