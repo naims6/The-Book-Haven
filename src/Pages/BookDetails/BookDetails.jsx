@@ -74,9 +74,7 @@ function BookDetailsPage() {
                 </span>
                 <div className="flex items-center gap-1">
                   <Star size={18} className="text-yellow-500 fill-yellow-500" />
-                  <span className="text-lg font-bold">
-                    {book.rating.toFixed(1)}
-                  </span>
+                  <span className="text-lg font-bold">{book.rating}</span>
                   <span className="text-sm ">(248 reviews)</span>
                 </div>
               </div>

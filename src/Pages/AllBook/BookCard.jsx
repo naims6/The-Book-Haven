@@ -35,7 +35,7 @@ function BookCard({ book }) {
           </span>
           <div className="flex items-center">
             <Star size={16} className="text-yellow-500 fill-yellow-500 mr-1" />
-            <span className="text-sm font-semibold">{rating.toFixed(1)}</span>
+            <span className="text-sm font-semibold">{rating}</span>
           </div>
         </div>
 
