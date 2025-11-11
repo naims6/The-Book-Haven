@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   // getting data from context
-  const { createUser, signInWithGoogle } = use(AuthContext);
+  const { createUser, signInWithGoogle, setLoading } = use(AuthContext);
   const [err, setErr] = useState();
   const navigate = useNavigate();
 
@@ -15,57 +15,89 @@ const Register = () => {
   const handleUserCreateAccount = (e) => {
     e.preventDefault();
     setErr("");
-    // getting form data
+
     const form = e.target;
-    const displayName = form.name.value;
-    const photoURL = form.photoURL.value;
-    const email = form.email.value;
+    const displayName = form.name.value.trim();
+    const photoURL = form.photoURL.value.trim();
+    const email = form.email.value.trim();
     const password = form.password.value;
     const terms = form.terms.checked;
 
-    // password pattern in regex
-    const passwordPatter = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    // password pattern regex
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
-    // password must be 6 digit
-    if (password < 6) {
-      toast("password must be 6 digit");
-      setErr("password must be 6 digit");
+    // password length check
+    if (password.length < 6) {
+      const msg = "Password must be at least 6 characters long.";
+      toast.error(msg);
+      setErr(msg);
+      setLoading(false);
       return;
     }
 
-    // password must be ! Upper and Lower Case
-    if (!passwordPatter.test(password)) {
-      toast("Your Password should at least 1 UpperCase and 1 Lower Case");
-      setErr("Your Password should at least 1 UpperCase and 1 Lower Case");
+    // password uppercase & lowercase check
+    if (!passwordPattern.test(password)) {
+      const msg =
+        "Password must contain at least 1 uppercase and 1 lowercase letter.";
+      toast.error(msg);
+      setErr(msg);
+      setLoading(false);
       return;
     }
 
-    // if terms and condition not checked
+    // terms & condition check
     if (!terms) {
-      toast("Please Checked Terms & Condition");
-      setErr("Please Checked Terms & Condition");
+      const msg = "Please accept the Terms & Conditions.";
+      toast.error(msg);
+      setErr(msg);
+      setLoading(false);
       return;
     }
 
-    //  create account with email and password
+    // create account
     createUser(email, password)
       .then((credential) => {
-        // update user profile also
+        // update profile
         updateProfile(credential.user, {
           displayName,
           photoURL,
         })
           .then(() => {
-            toast.success("Account created successfully");
+            toast.success("Account created successfully!");
             navigate("/");
           })
-          .catch((e) => {
-            toast.error(e.message);
+          .catch(() => {
+            toast.error("Failed to update profile. Please try again.");
+            setErr("Failed to update profile. Please try again.");
           });
       })
-      .catch((e) => {
-        toast(e.message);
-        setErr(e.message);
+      .catch((error) => {
+        let customMessage = "";
+
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            customMessage = "This email is already registered.";
+            break;
+
+          case "auth/invalid-email":
+            customMessage = "Please enter a valid email address.";
+            break;
+
+          case "auth/weak-password":
+            customMessage = "Your password is too weak. Try a stronger one.";
+            break;
+
+          case "auth/operation-not-allowed":
+            customMessage = "Email/password sign-up is not enabled.";
+            break;
+
+          default:
+            customMessage = "Something went wrong. Please try again.";
+        }
+
+        toast.error(customMessage);
+        setErr(customMessage);
+        setLoading(false);
       });
   };
 
