@@ -23,8 +23,6 @@ const Login = () => {
       })
       .catch((error) => {
         let errorMessage = "";
-        console.log(error.code);
-        console.log(error);
 
         switch (error.code) {
           case "auth/invalid-credential":
@@ -47,7 +45,6 @@ const Login = () => {
           default:
             errorMessage = "Something went wrong. Please try again.";
         }
-
         setErr(errorMessage);
         toast.error(errorMessage);
       });
