@@ -2,7 +2,7 @@ import React from "react";
 
 const BookCardSkeleton = () => {
   return (
-    <div className="max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-md animate-pulse overflow-hidden border border-gray-100 dark:border-gray-800">
+    <div className="w-full bg-white dark:bg-gray-900 rounded-2xl shadow-md animate-pulse overflow-hidden border border-gray-100 dark:border-gray-800">
       <div className="h-56 w-full bg-gray-200 dark:bg-gray-800"></div>
       <div className="p-4 space-y-3">
         <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>

@@ -1,26 +1,18 @@
-import { use, useState } from "react";
+import { useEffect, useState } from "react";
 import useAxios from "../../hooks/useAxios";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import Title2 from "../../Components/Title2";
 import Loading from "../Loading/Loading";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Provider/AuthContex";
 
-function AddBook() {
-  const { user } = use(AuthContext);
+function UpdateBook() {
+  const { id } = useParams();
   const axiosInstance = useAxios();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    title: "",
-    author: "",
-    genre: "",
-    rating: "",
-    summary: "",
-    description: "",
-    coverImage: "",
-  });
+  const [formData, setFormData] = useState({});
 
   // handle input change
   const handleChange = (e) => {
@@ -32,26 +24,39 @@ function AddBook() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+
     const finalFormData = {
-      ...formData,
-      userEmail: user?.email,
-      userName: user?.displayName,
-      createdAt: new Date().toISOString(),
+      author: formData.author,
+      coverImage: formData.coverImage,
+      createdAt: formData.createdAt,
+      description: formData.description,
+      genre: formData.genre,
+      rating: formData.rating,
+      summary: formData.summary,
+      title: formData.title,
+      userEmail: formData.userEmail,
     };
 
     axiosInstance
-      .post("/all-books", finalFormData)
+      .put(`/all-books/${id}`, finalFormData)
       .then((data) => {
-        if (data.data.insertedId) {
-          toast.success("Book added successfully!");
+        if (data.data) {
+          toast.success("Book Updated successfully!");
           navigate("/all-books");
         }
       })
       .catch((error) => {
         console.error(error);
-        toast.error("Failed to add book!");
+        toast.error("Failed to update book!");
+        setLoading(false);
       });
   };
+
+  useEffect(() => {
+    axiosInstance.get(`book-details/${id}`).then((data) => {
+      setFormData(data.data);
+    });
+  }, [axiosInstance, id]);
 
   if (loading) {
     return <Loading />;
@@ -59,7 +64,7 @@ function AddBook() {
 
   return (
     <div className="max-w-3xl mx-auto mt-16 pb-12">
-      <Title2>Add New Book</Title2>
+      <Title2>Update Book</Title2>
       <form
         onSubmit={handleSubmit}
         className="space-y-5 bg-gray-800 p-8 mt-3 rounded-2xl shadow-md mx-4"
@@ -70,7 +75,7 @@ function AddBook() {
           <input
             type="text"
             name="title"
-            value={formData.title}
+            value={formData?.title}
             onChange={handleChange}
             required
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
@@ -83,7 +88,7 @@ function AddBook() {
           <input
             type="text"
             name="author"
-            value={formData.author}
+            value={formData?.author}
             onChange={handleChange}
             required
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
@@ -96,7 +101,7 @@ function AddBook() {
           <input
             type="text"
             name="genre"
-            value={formData.genre}
+            value={formData?.genre}
             onChange={handleChange}
             required
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
@@ -109,7 +114,7 @@ function AddBook() {
           <input
             type="number"
             name="rating"
-            value={formData.rating}
+            value={formData?.rating}
             onChange={handleChange}
             required
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
@@ -121,7 +126,7 @@ function AddBook() {
           <label className="block text-sm font-medium mb-1">Summary</label>
           <textarea
             name="summary"
-            value={formData.summary}
+            value={formData?.summary}
             onChange={handleChange}
             required
             rows="2"
@@ -134,7 +139,7 @@ function AddBook() {
           <label className="block text-sm font-medium mb-1">Description</label>
           <textarea
             name="description"
-            value={formData.description}
+            value={formData?.description}
             onChange={handleChange}
             required
             rows="3"
@@ -150,7 +155,7 @@ function AddBook() {
           <input
             type="url"
             name="coverImage"
-            value={formData.coverImage}
+            value={formData?.coverImage}
             onChange={handleChange}
             required
             placeholder="https://example.com/cover.jpg"
@@ -173,4 +178,4 @@ function AddBook() {
   );
 }
 
-export default AddBook;
+export default UpdateBook;

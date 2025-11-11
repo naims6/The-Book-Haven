@@ -1,7 +1,10 @@
 import { Star, Calendar, User } from "lucide-react";
+import { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../../Provider/AuthContex";
 
 function BookCard({ book }) {
+  const { user } = use(AuthContext);
   const { title, coverImage, genre, createdAt, rating, author } = book;
   const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
@@ -44,11 +47,32 @@ function BookCard({ book }) {
           <span>Added {formattedDate}</span>
         </div>
 
-        <Link to={`/book-details/${book._id}`}>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200 cursor-pointer">
-            View Details
-          </button>
-        </Link>
+        {/* view details and update button */}
+        <div className="flex gap-2 items-center justify-center w-full">
+          <Link
+            className="text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200 cursor-pointer w-full"
+            to={`/book-details/${book._id}`}
+          >
+            View
+          </Link>
+          {/* show update only logged user */}
+          {user?.email === book?.userEmail && (
+            <>
+              <Link
+                to={`/book-update/${book._id}`}
+                className="bg-green-500 font-semibold px-4 hover:bg-green-700 text-white text-center  py-2.5 rounded-lg transition-colors duration-200 cursor-pointer w-1/2"
+              >
+                Update
+              </Link>
+              <Link
+                to={`/book-delete/${book._id}`}
+                className="bg-red-500 font-semibold px-4 hover:bg-red-700 text-white text-center py-2.5 rounded-lg transition-colors duration-200 cursor-pointer w-1/2"
+              >
+                Delete
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
