@@ -10,6 +10,8 @@ const AllBook = () => {
   const axiosInstance = useAxios();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+
   // handle sort book
   const handleSort = (e) => {
     const value = e.target.value;
@@ -18,9 +20,19 @@ const AllBook = () => {
       setBooks(data.data);
     });
   };
-  // handle search book
-  const handleBookSearch = () => {
-    console.log("searching...");
+
+  // handle search  book real time
+  const handleBookSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // handle search button click
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+    axiosInstance.get(`all-books/search?title=${searchTerm}`).then((data) => {
+      setBooks(data.data);
+    });
   };
 
   // Fetch data client-side
@@ -33,7 +45,7 @@ const AllBook = () => {
           setLoading(false);
         })
         .catch(() => setLoading(false));
-    }, 500);
+    }, 200);
   }, [axiosInstance]);
 
   return (
@@ -45,16 +57,20 @@ const AllBook = () => {
         handleSort={handleSort}
         handleBookSearch={handleBookSearch}
         loading={loading}
+        handleSearchSubmit={handleSearchSubmit}
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container2">
-        {loading
-          ? Array.from({ length: 8 }).map((_, i) => (
-              <BookCardSkeleton key={i} />
-            ))
-          : books.map((book) => (
-              <BookCard key={book._id} book={book} setBooks={setBooks} />
-            ))}
+        {/* if loading true show skeleton */}
+        {loading ? (
+          Array.from({ length: 8 }).map((_, i) => <BookCardSkeleton key={i} />)
+        ) : books.length === 0 ? ( // if book length o show no book found
+          <h1>No Book Found </h1>
+        ) : (
+          books.map((book) => (
+            <BookCard key={book._id} book={book} setBooks={setBooks} />
+          ))
+        )}
       </div>
     </div>
   );

@@ -53,19 +53,6 @@ const AboutSection = () => {
           </div>
         ))}
       </div>
-
-      {/* Mission */}
-      {/* <div className="mt-16 text-center max-w-3xl mx-auto">
-        <h3 className="text-2xl font-semibold mb-4 text-blue-400">
-          Our Mission
-        </h3>
-        <p className="leading-relaxed">
-          At <span className="font-semibold">The Book Haven</span>, our mission
-          is to make reading more social, accessible, and inspiring. We believe
-          that every story deserves a spotlight — and every reader deserves a
-          community that values their voice.
-        </p>
-      </div> */}
     </section>
   );
 };
