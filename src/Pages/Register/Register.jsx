@@ -7,13 +7,17 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   // getting data from context
-  const { createUser, signInWithGoogle, setLoading } = use(AuthContext);
+  const { createUser, signInWithGoogle } = use(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const [goggleLoading, setGoggleLoading] = useState(false);
+
   const [err, setErr] = useState();
   const navigate = useNavigate();
 
   // handle user creating account
   const handleUserCreateAccount = (e) => {
     e.preventDefault();
+    setLoading(true);
     setErr("");
 
     const form = e.target;
@@ -65,6 +69,7 @@ const Register = () => {
           .then(() => {
             toast.success("Account created successfully!");
             navigate("/");
+            setLoading(false);
           })
           .catch(() => {
             toast.error("Failed to update profile. Please try again.");
@@ -103,9 +108,11 @@ const Register = () => {
 
   // handle user google login
   const handleGoogleSignIn = () => {
+    setGoggleLoading(true);
     signInWithGoogle().then(() => {
       toast.success("Succesfully Loged in with Google");
       navigate(`${location.state ? location.state : "/"}`);
+      setGoggleLoading(false);
     });
   };
 
@@ -127,6 +134,7 @@ const Register = () => {
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your Name"
               name="name"
+              required
             />
           </div>
           {/* photo Url */}
@@ -137,6 +145,7 @@ const Register = () => {
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Photo Url"
               name="photoURL"
+              required
             />
           </div>
           {/* email */}
@@ -147,6 +156,7 @@ const Register = () => {
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your email"
               name="email"
+              required
             />
           </div>
           {/* password */}
@@ -157,6 +167,7 @@ const Register = () => {
               className="mt-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="••••••••"
               name="password"
+              required
             />
           </div>
 
@@ -172,23 +183,29 @@ const Register = () => {
           </div>
 
           <button
+            disabled={loading}
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
+            className={`${
+              loading ? "bg-blue-600/60" : "bg-blue-600 hover:bg-blue-700"
+            } w-full  text-white py-2 rounded-md transition cursor-pointer`}
           >
-            Register
+            {loading ? "Registering..." : "Register"}
           </button>
 
           <button
             onClick={handleGoogleSignIn}
             type="button"
-            className="w-full flex items-center justify-center border py-2 rounded-md transition cursor-pointer"
+            disabled={goggleLoading}
+            className={`${
+              goggleLoading && "opacity-60"
+            } w-full flex items-center justify-center border py-2 rounded-md transition cursor-pointer`}
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
               className="w-5 h-5 mr-2"
             />
-            Sign in with Google
+            {goggleLoading ? "Logging..." : "Sign in with Google"}
           </button>
         </form>
 

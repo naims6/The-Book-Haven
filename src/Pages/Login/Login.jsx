@@ -5,6 +5,8 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInUser, signInWithGoogle } = use(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const [goggleLoading, setGoggleLoading] = useState(false);
   const [err, setErr] = useState();
   const navigate = useNavigate();
   const location = useLocation("");
@@ -12,6 +14,9 @@ const Login = () => {
   // login user with email and password
   const handleUserLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setErr("");
+
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -20,6 +25,7 @@ const Login = () => {
       .then(() => {
         toast.success("Logged in successfully!");
         navigate(location.state ? location.state : "/");
+        setLoading(false);
       })
       .catch((error) => {
         let errorMessage = "";
@@ -47,14 +53,17 @@ const Login = () => {
         }
         setErr(errorMessage);
         toast.error(errorMessage);
+        setLoading(false);
       });
   };
 
   // handle user google login
   const handleGoogleSignIn = () => {
+    setGoggleLoading(true);
     signInWithGoogle().then(() => {
       toast.success("Succesfully Loged in with Google");
       navigate(`${location.state ? location.state : "/"}`);
+      setGoggleLoading(false);
     });
   };
 
@@ -106,23 +115,29 @@ const Login = () => {
           </div>
 
           <button
+            disabled={loading}
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
+            className={`${
+              loading ? "bg-blue-600/60" : "bg-blue-600 hover:bg-blue-700"
+            } w-full  text-white py-2 rounded-md transition cursor-pointer`}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
           <button
             onClick={handleGoogleSignIn}
             type="button"
-            className="w-full flex items-center justify-center border py-2 rounded-md transition cursor-pointer"
+            disabled={goggleLoading}
+            className={`${
+              goggleLoading && "opacity-60"
+            } w-full flex items-center justify-center border py-2 rounded-md transition cursor-pointer`}
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
               className="w-5 h-5 mr-2"
             />
-            Sign in with Google
+            {goggleLoading ? "Logging..." : "Sign in with Google"}
           </button>
         </form>
 
