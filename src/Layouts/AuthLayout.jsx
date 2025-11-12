@@ -5,9 +5,11 @@ import Footer from "../Components/Footer";
 
 const AuthLayout = () => {
   return (
-    <div>
+    <div className="flex flex-col justify-between min-h-screen">
       <Navbar />
-      <Outlet />
+      <div className="flex-1 overflow-y-auto">
+        <Outlet />
+      </div>
       <Footer />
       <ScrollRestoration />
     </div>
