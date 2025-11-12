@@ -4,6 +4,7 @@ import BookCard from "./BookCard";
 import BookCardSkeleton from "./BookCardSkeleton";
 import useAxios from "../../hooks/useAxios";
 import Title2Skeleton from "../../Components/Title2Skeleton";
+import AllBookAction from "./AllBookAction";
 
 const AllBook = () => {
   const axiosInstance = useAxios();
@@ -37,34 +38,7 @@ const AllBook = () => {
       {loading ? <Title2Skeleton /> : <Title2>All Books</Title2>}
 
       {/* Filter and search Section */}
-      <div className="container2 flex flex-col md:flex-row space-y-2 items-center gap-3 mb-8 mt-6">
-        {/* search  */}
-        <div>
-          <input
-            className="bg-gray-800 py-3.5 px-4 rounded-md outline-none focus:ring-2 focus:ring-blue-500 transition"
-            type="search"
-            placeholder="Search Book..."
-          />
-        </div>
-        {/* filter sort  */}
-        <div>
-          <label htmlFor="" className="mr-2">
-            Sory By :
-          </label>
-          <select
-            id="sort"
-            onChange={handleSort}
-            className="bg-gray-800 py-3.5 px-4 rounded-md outline-none focus:ring-2 focus:ring-blue-500 transition"
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Select an option
-            </option>
-            <option value="rating">Rating</option>
-            <option value="createdAt">Newest First</option>
-          </select>
-        </div>
-      </div>
+      <AllBookAction handleSort={handleSort} loading={loading} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container2">
         {loading

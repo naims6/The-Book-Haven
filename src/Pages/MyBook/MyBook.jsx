@@ -27,7 +27,7 @@ const MyBook = () => {
   return (
     <div className="container2 mt-16 py-12">
       <Title2>My Book</Title2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container2">
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container2">
         {books?.length === 0 ? (
           <h1 className="col-span-full text-center text-3xl mt-5">
             There are no book found !!
