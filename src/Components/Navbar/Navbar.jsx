@@ -16,6 +16,7 @@ const Navbar = () => {
   const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileNavMenuRef = useRef();
+  const themeToggleRef = useRef();
   // handle menu toggle
   const handleMenuToggle = () => {
     setIsMenuOpen((prev) => !prev);
@@ -106,6 +107,23 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isMenuOpen]);
 
+  // handle theme outside click
+  useEffect(() => {
+    const handleThemeOutsideClick = (e) => {
+      if (
+        isThemeDropdownOpen &&
+        themeToggleRef.current &&
+        !themeToggleRef.current.contains(e.target)
+      ) {
+        setIsThemeDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleThemeOutsideClick);
+    // clean up
+    return () => document.removeEventListener("click", handleThemeOutsideClick);
+  }, [isThemeDropdownOpen]);
+
   // loading time..
   if (loading) {
     return <NavbarSkeleton />;
@@ -134,8 +152,9 @@ const Navbar = () => {
             <ul className="hidden lg:flex">{lists}</ul>
           </div>
           {/* end functionality login,logout, register, theme toggle, profile image */}
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-3.5 items-center">
             <NavTheme
+              themeToggleRef={themeToggleRef}
               theme={theme}
               handleThemeDropdownOpen={handleThemeDropdownOpen}
               isThemeDropdownOpen={isThemeDropdownOpen}

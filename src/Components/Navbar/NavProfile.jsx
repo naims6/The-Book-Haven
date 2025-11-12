@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../Button";
 import { Link } from "react-router";
 
 const NavProfile = ({ user, handleSignOutUser }) => {
   const [isNavProfileOpen, setIsNavProfileOpen] = useState(false);
+  const profileImageRef = useRef();
 
   const handleNavProfileToggle = () => {
     setIsNavProfileOpen(!isNavProfileOpen);
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        isNavProfileOpen &&
+        profileImageRef.current &&
+        !profileImageRef.current.contains(e.target)
+      ) {
+        setIsNavProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, [isNavProfileOpen]);
+
   return (
-    <div className="relative">
+    <div className="relative group">
       {user ? (
         <>
           <div>
             <img
+              ref={profileImageRef}
               onClick={handleNavProfileToggle}
               className="size-9 lg:size-12 rounded-full object-cover cursor-pointer"
               src={user.photoURL}
@@ -25,7 +42,7 @@ const NavProfile = ({ user, handleSignOutUser }) => {
           <div
             className={`absolute ${
               isNavProfileOpen ? "right-0" : "hidden"
-            } w-[200px]  top-12 px-3 py-5 rounded-md bg-gray-800 border border-gray-600`}
+            } w-[200px] group-hover:right-0 group-hover:block top-12 px-3 py-5 rounded-md bg-gray-800 border border-gray-600`}
           >
             <div className="flex gap-2 items-center">
               <img
@@ -37,8 +54,9 @@ const NavProfile = ({ user, handleSignOutUser }) => {
             </div>
             <div>
               <ul className="mt-5 mb-3">
-                <li className="py-2 cursor-pointer">Settings</li>
                 <li className="py-2 cursor-pointer">Profile</li>
+                <li className="py-2 cursor-pointer">Bookmark</li>
+                <li className="py-2 cursor-pointer">Settings</li>
               </ul>
             </div>
             <span onClick={handleSignOutUser}>
