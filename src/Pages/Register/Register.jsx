@@ -4,11 +4,12 @@ import { AuthContext } from "../../Provider/AuthContex";
 
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
+import Loading from "../Loading/Loading";
 
 const Register = () => {
   // getting data from context
-  const { user, createUser, signInWithGoogle } = use(AuthContext);
-  const [loading, setLoading] = useState(false);
+  const { user, createUser, signInWithGoogle, loading } = use(AuthContext);
+  const [loginLoading, setLoginLoading] = useState(false);
   const [goggleLoading, setGoggleLoading] = useState(false);
 
   const [err, setErr] = useState();
@@ -17,7 +18,7 @@ const Register = () => {
   // handle user creating account
   const handleUserCreateAccount = (e) => {
     e.preventDefault();
-    setLoading(true);
+    setLoginLoading(true);
     setErr("");
 
     const form = e.target;
@@ -35,7 +36,7 @@ const Register = () => {
       const msg = "Password must be at least 6 characters long.";
       toast.error(msg);
       setErr(msg);
-      setLoading(false);
+      setLoginLoading(false);
       return;
     }
 
@@ -45,7 +46,7 @@ const Register = () => {
         "Password must contain at least 1 uppercase and 1 lowercase letter.";
       toast.error(msg);
       setErr(msg);
-      setLoading(false);
+      setLoginLoading(false);
       return;
     }
 
@@ -54,7 +55,7 @@ const Register = () => {
       const msg = "Please accept the Terms & Conditions.";
       toast.error(msg);
       setErr(msg);
-      setLoading(false);
+      setLoginLoading(false);
       return;
     }
 
@@ -69,7 +70,7 @@ const Register = () => {
           .then(() => {
             toast.success("Account created successfully!");
             navigate("/");
-            setLoading(false);
+            setLoginLoading(false);
           })
           .catch(() => {
             toast.error("Failed to update profile. Please try again.");
@@ -102,9 +103,13 @@ const Register = () => {
 
         toast.error(customMessage);
         setErr(customMessage);
-        setLoading(false);
+        setLoginLoading(false);
       });
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (user) {
     return <Navigate to="/"></Navigate>;
@@ -187,13 +192,13 @@ const Register = () => {
           </div>
 
           <button
-            disabled={loading}
+            disabled={loginLoading}
             type="submit"
             className={`${
-              loading ? "bg-blue-600/60" : "bg-blue-600 hover:bg-blue-700"
+              loginLoading ? "bg-blue-600/60" : "bg-blue-600 hover:bg-blue-700"
             } w-full  text-white py-2 rounded-md transition cursor-pointer`}
           >
-            {loading ? "Registering..." : "Register"}
+            {loginLoading ? "Registering..." : "Register"}
           </button>
 
           <button

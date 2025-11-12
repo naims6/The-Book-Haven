@@ -10,14 +10,17 @@ const AllBook = () => {
   const axiosInstance = useAxios();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  // handle sort book
   const handleSort = (e) => {
-    console.log("hello");
     const value = e.target.value;
     axiosInstance.get(`/all-books?sortBy=${value}`).then((data) => {
       console.log(data.data);
       setBooks(data.data);
     });
+  };
+  // handle search book
+  const handleBookSearch = () => {
+    console.log("searching...");
   };
 
   // Fetch data client-side
@@ -38,7 +41,11 @@ const AllBook = () => {
       {loading ? <Title2Skeleton /> : <Title2>All Books</Title2>}
 
       {/* Filter and search Section */}
-      <AllBookAction handleSort={handleSort} loading={loading} />
+      <AllBookAction
+        handleSort={handleSort}
+        handleBookSearch={handleBookSearch}
+        loading={loading}
+      />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 container2">
         {loading

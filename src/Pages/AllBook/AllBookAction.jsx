@@ -1,7 +1,7 @@
 import React from "react";
 import { Search } from "lucide-react";
 
-const AllBookAction = ({ handleSort, loading }) => {
+const AllBookAction = ({ handleSort, handleBookSearch, loading }) => {
   // Skeleton Loader
   if (loading) {
     return (
@@ -21,7 +21,7 @@ const AllBookAction = ({ handleSort, loading }) => {
           size={18}
         />
         <input
-          //   onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => handleBookSearch(e)}
           className="bg-gray-800  w-full pl-10 pr-5 py-3.5 rounded-md outline-none focus:ring-2 focus:ring-blue-500 transition"
           type="search"
           placeholder="Search by book title..."

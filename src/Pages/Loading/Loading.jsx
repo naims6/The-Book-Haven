@@ -5,7 +5,7 @@ const Loading = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="text-center mt-16">
+    <div className="text-center mt-20">
       <SquareLoader color={`${theme === "dark" ? "#fff" : "#000"}`} />
     </div>
   );
