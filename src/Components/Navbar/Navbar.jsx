@@ -102,9 +102,10 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick, true);
     // clean up
-    return () => document.removeEventListener("mousedown", handleOutsideClick);
+    return () =>
+      document.removeEventListener("click", handleOutsideClick, true);
   }, [isMenuOpen]);
 
   // handle theme outside click
