@@ -7,7 +7,7 @@ const RootLayout = () => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Navbar />
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-auto">
         <Outlet />
       </div>
       <Footer />
