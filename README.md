@@ -43,7 +43,7 @@ Built with **React**, **Tailwind CSS**, **Firebase Auth**, **Node.js**, **Expres
 
 ### ⚙️ Sorting & Filtering
 
-- Sort books by rating, creation date, or price
+- Sort books by rating, creation date
 - Search and filter options for better user experience
 
 ---
