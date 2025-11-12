@@ -29,6 +29,7 @@ const Comment = ({ bookId }) => {
       if (data?.data?.insertedId) {
         setUsersComments([userComment, ...usersComments]);
         toast.success("your comment posted");
+        setCommentText("");
       }
     });
   };

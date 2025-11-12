@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContex";
 
 import { updateProfile } from "firebase/auth";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   // getting data from context
-  const { createUser, signInWithGoogle } = use(AuthContext);
+  const { user, createUser, signInWithGoogle } = use(AuthContext);
   const [loading, setLoading] = useState(false);
   const [goggleLoading, setGoggleLoading] = useState(false);
 
@@ -105,6 +105,10 @@ const Register = () => {
         setLoading(false);
       });
   };
+
+  if (user) {
+    return <Navigate to="/"></Navigate>;
+  }
 
   // handle user google login
   const handleGoogleSignIn = () => {

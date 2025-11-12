@@ -1,10 +1,10 @@
 import React, { use, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContex";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle } = use(AuthContext);
+  const { signInUser, signInWithGoogle, user } = use(AuthContext);
   const [loading, setLoading] = useState(false);
   const [goggleLoading, setGoggleLoading] = useState(false);
   const [err, setErr] = useState();
@@ -66,6 +66,10 @@ const Login = () => {
       setGoggleLoading(false);
     });
   };
+
+  if (user) {
+    return <Navigate to="/"></Navigate>;
+  }
 
   return (
     <div className="mt-16 h-[92vh] flex items-center justify-center bg-gray-900 text-gray-200">
