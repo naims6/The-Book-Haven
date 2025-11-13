@@ -18,14 +18,14 @@ const LatestBooks = () => {
           </h2>
         </Link>
       </div>
-      <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 overflow-hidden">
+      <div className="grid gap-2 lg:gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 overflow-hidden">
         {latestBooks.map((book) => (
           <div
             key={book._id}
-            className="p-1 shadow-md rounded-md border border-transparent dark:border-gray-700/40"
+            className="flex flex-col justify-between  p-1 shadow-md rounded-md border border-transparent dark:border-gray-700/40"
           >
             <img
-              className="w-10/12 h-[230px] object-cover mx-auto cursor-pointer"
+              className="w-full lg:w-[200px] h-[230px] lg:h-[260px] object-cover mx-auto cursor-pointer"
               src={book.coverImage}
               alt="book cover image"
             />
