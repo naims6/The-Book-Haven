@@ -39,7 +39,7 @@ const Banner = () => {
                   <h1 className="text-4xl lg:text-5xl font-bold leading-14">
                     The Biggest Book Store in Bangladesh
                   </h1>
-                  <p className="text-text-secondary">
+                  <p className="text-gray-300">
                     Experience unforgettable journeys with books from every
                     genre and era.
                   </p>
@@ -70,7 +70,7 @@ const Banner = () => {
                   <h1 className="text-4xl lg:text-5xl font-bold leading-14">
                     Discover Your Next Favorite Book
                   </h1>
-                  <p className="text-text-secondary">
+                  <p className="text-gray-300">
                     Unlock new perspectives through books that inspire, educate,
                     and entertain.
                   </p>

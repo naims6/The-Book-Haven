@@ -1,14 +1,14 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { MdOutlineMailOutline } from "react-icons/md";
+import { IoIosSend } from "react-icons/io";
 import { Link } from "react-router";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-surface border-t border-border pb-8 pt-12">
-      <div className="footer flex flex-col lg:flex-row justify-between space-y-6 container2 pb-10">
+      <div className="footer flex flex-col lg:flex-row justify-between space-y-7 container2 pb-7 lg:pb-10">
         <aside className="max-w-[320px]">
           <Link to={"/"} className="text-2xl font-bold flex items-center">
             <h1 className="text-3xl text-center whitespace-nowrap">
@@ -135,11 +135,11 @@ const Footer = () => {
           <div className="flex mt-6">
             <input
               type="text"
-              className="py-4 px-4 bg-surface border-border rounded-l-md"
+              className="py-4 px-4 bg-surface border border-border rounded-l-md"
               placeholder="Enter Your Email"
             />
-            <span className="py-4 px-4 bg-green-700 rounded-r-md">
-              <MdOutlineMailOutline color="#fff" size={26} />
+            <span className="py-4 px-4 bg-primary rounded-r-md">
+              <IoIosSend size={24} color="#fff" />
             </span>
           </div>
         </nav>

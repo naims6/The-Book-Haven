@@ -9,9 +9,9 @@ const fetcher = axios
 const LatestBooks = () => {
   const latestBooks = use(fetcher);
   return (
-    <div className="container2 py-20">
-      <div className="flex justify-between items-center">
-        <Title>Latest Books</Title>
+    <div className="container2 py-16 lg:py-20">
+      <div className="flex justify-between items-center mb-7">
+        <h1 className="text-2xl font-bold">Latest Books</h1>
         <Link to="/all-books">
           <h2 className="text-base font-medium underline cursor-pointer">
             View All

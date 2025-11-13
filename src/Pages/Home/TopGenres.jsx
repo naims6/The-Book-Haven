@@ -28,7 +28,9 @@ const TopGenres = () => {
   return (
     <section className="py-10 md:px-10">
       <div className="container2">
-        <Title2>Top Genres</Title2>
+        <div className="mb-4">
+          <Title2>Top Genres</Title2>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {genres.map((genre, index) => (

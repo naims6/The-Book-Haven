@@ -140,14 +140,17 @@ const Navbar = () => {
               <CiMenuBurger size={24} />
             </span>
           </div>
-          {/* logo */}
+          {/* Logo */}
           <div className="flex flex-1 lg:flex-0 justify-center items-center">
-            <Link to="/" className="text-center">
-              <h1 className="text-3xl text-center whitespace-nowrap">
-                📚 Book.io
+            <Link to="/" className="text-center flex items-center gap-2">
+              {/* Optional: Add a subtle animation to the icon */}
+              <span className="text-3xl">📚</span>
+              <h1 className="text-3xl font-bold bg-linear-to-r from-indigo-500 via-primary-500 to-pink-500 bg-clip-text text-transparent whitespace-nowrap">
+                Book.io
               </h1>
             </Link>
           </div>
+
           {/* navbar lists */}
           <div>
             <ul className="hidden lg:flex">{lists}</ul>

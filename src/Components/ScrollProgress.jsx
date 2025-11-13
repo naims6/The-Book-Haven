@@ -15,7 +15,7 @@ const ScrollProgress = () => {
       const docHeight = document.body.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
-      if (progress > 25) {
+      if (progress > 30) {
         setIsScrollBarShow(true);
       } else {
         setIsScrollBarShow(false);

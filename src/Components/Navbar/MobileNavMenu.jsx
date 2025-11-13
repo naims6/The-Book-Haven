@@ -33,7 +33,7 @@ const MobileNavMenu = ({
       onTouchStart={handleNavTouchStart}
       onTouchMove={handleNavTouchMove}
       ref={mobileNavMenuRef}
-      className={`lg:hidden fixed w-full max-w-[300px] bg-gray-900 ${
+      className={`lg:hidden fixed w-full max-w-[300px] bg-surface ${
         isMenuOpen ? "left-0" : "-left-[90%]"
       }  top-0 h-screen z-20 flex flex-col transition-all duration-300 pt-8`}
     >
