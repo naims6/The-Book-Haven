@@ -67,7 +67,7 @@ function UpdateBook() {
       <Title2>Update Book</Title2>
       <form
         onSubmit={handleSubmit}
-        className="space-y-5 bg-gray-800 p-8 mt-3 rounded-2xl shadow-md mx-4"
+        className="space-y-5 bg-surface p-8 mt-3 rounded-2xl shadow-md mx-4"
       >
         {/* Title */}
         <div>
@@ -78,7 +78,7 @@ function UpdateBook() {
             value={formData?.title}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           />
         </div>
 
@@ -91,7 +91,7 @@ function UpdateBook() {
             value={formData?.author}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           />
         </div>
 
@@ -104,7 +104,7 @@ function UpdateBook() {
             value={formData?.genre}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           />
         </div>
 
@@ -117,7 +117,7 @@ function UpdateBook() {
             value={formData?.rating}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           />
         </div>
 
@@ -130,7 +130,7 @@ function UpdateBook() {
             onChange={handleChange}
             required
             rows="2"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           ></textarea>
         </div>
 
@@ -143,7 +143,7 @@ function UpdateBook() {
             onChange={handleChange}
             required
             rows="3"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           ></textarea>
         </div>
 
@@ -159,7 +159,7 @@ function UpdateBook() {
             onChange={handleChange}
             required
             placeholder="https://example.com/cover.jpg"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-gray-800"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-500 dark:bg-surface"
           />
         </div>
 

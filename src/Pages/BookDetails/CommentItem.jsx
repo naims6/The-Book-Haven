@@ -6,7 +6,7 @@ const CommentItem = ({ comment }) => {
   });
 
   return (
-    <div key={comment.id} className="bg-gray-800 p-6 rounded-lg shadow">
+    <div key={comment.id} className="bg-surface p-6 rounded-lg shadow">
       <div className="flex gap-4">
         <img
           src={comment.userImage}

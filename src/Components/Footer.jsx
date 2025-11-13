@@ -7,7 +7,7 @@ import { Link } from "react-router";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-gray-900 border-t border-gray-700/40 text-base-200 pb-8 pt-12">
+    <footer className="bg-surface border-t border-border pb-8 pt-12">
       <div className="footer flex flex-col lg:flex-row justify-between space-y-6 container2 pb-10">
         <aside className="max-w-[320px]">
           <Link to={"/"} className="text-2xl font-bold flex items-center">
@@ -46,25 +46,25 @@ const Footer = () => {
             <span className="absolute -bottom-1 left-0 w-28 h-0.5 bg-[linear-gradient(90deg,rgba(16,185,129,1)_0%,rgba(52,211,153,0)_100%)] rounded-xl z-10"></span>
           </div>
           <div className="space-y-2.5 mt-5">
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Help Center
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Shipping FAQs
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Pick up in Store
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Order Status
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Product Recalls
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Corrections & Updates
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Gift Cards
             </a>
           </div>
@@ -78,16 +78,16 @@ const Footer = () => {
           </div>
 
           <div className="space-y-2.5 mt-5">
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 duration-200">
               Contact Us
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 duration-200">
               Track Your Order
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 duration-200">
               Returns Policy
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 duration-200">
               Brand Directory
             </a>
           </div>
@@ -101,23 +101,23 @@ const Footer = () => {
           </div>
 
           <div className="space-y-2.5 mt-5">
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Coupons
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               RX Prescription
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Scholarship Program
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Brand Directory
             </a>
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               E-Catalogs/Requests
             </a>
 
-            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-[#064532] transition-all duration-200">
+            <a className="link link-hover flex text-sm cursor-pointer gap-1 hover:text-text-muted hover:translate-x-1 transition-all duration-200">
               Blog
             </a>
           </div>
@@ -135,7 +135,7 @@ const Footer = () => {
           <div className="flex mt-6">
             <input
               type="text"
-              className="py-4 px-4 bg-gray-800 rounded-l-md"
+              className="py-4 px-4 bg-surface border-border rounded-l-md"
               placeholder="Enter Your Email"
             />
             <span className="py-4 px-4 bg-green-700 rounded-r-md">

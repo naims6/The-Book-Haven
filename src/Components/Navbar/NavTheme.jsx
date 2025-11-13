@@ -90,7 +90,7 @@ const NavTheme = ({
         <div
           className={` ${
             isThemeDropdownOpen ? "flex" : "hidden"
-          } absolute z-50 top-6 left-1/2 -translate-x-1/2 flex-col bg-gray-900 rounded-md border border-gray-500 space-y-2`}
+          } absolute z-50 top-6 left-1/2 -translate-x-1/2 flex-col bg-surface rounded-md border border-gray-500 space-y-2`}
         >
           <span
             onClick={() => handleThemeToggle("system")}

@@ -2,7 +2,7 @@ import React from "react";
 
 function BookCardSkeleton() {
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden animate-pulse pt-2">
+    <div className="bg-surface rounded-lg shadow-md overflow-hidden animate-pulse pt-2">
       {/* Image placeholder */}
       <div className="relative overflow-hidden flex justify-center">
         <div className="w-[200px] h-[300px] bg-gray-700/70 rounded-md"></div>

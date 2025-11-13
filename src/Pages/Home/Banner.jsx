@@ -39,14 +39,14 @@ const Banner = () => {
                   <h1 className="text-4xl lg:text-5xl font-bold leading-14">
                     The Biggest Book Store in Bangladesh
                   </h1>
-                  <p className="">
+                  <p className="text-text-secondary">
                     Experience unforgettable journeys with books from every
                     genre and era.
                   </p>
                 </div>
                 {/* actions button all book and create book */}
                 <div className="flex gap-3">
-                  <Link to="/all-book">
+                  <Link to="/all-books">
                     <Button>All Books</Button>
                   </Link>
                   <Link to="/add-book">
@@ -70,7 +70,7 @@ const Banner = () => {
                   <h1 className="text-4xl lg:text-5xl font-bold leading-14">
                     Discover Your Next Favorite Book
                   </h1>
-                  <p className="">
+                  <p className="text-text-secondary">
                     Unlock new perspectives through books that inspire, educate,
                     and entertain.
                   </p>

@@ -2,7 +2,7 @@ import React from "react";
 
 const NavbarSkeleton = () => {
   return (
-    <div className="fixed w-full left-0 top-0 z-20 shadow-md bg-gray-800/70 backdrop-blur-md">
+    <div className="fixed w-full left-0 top-0 z-20 shadow-md bg-surface/70 backdrop-blur-md">
       <div className="flex justify-between min-h-16 items-center container2 px-5 animate-pulse">
         {/* Menu button */}
         <div className="lg:hidden w-6 h-6 bg-gray-600 rounded-md"></div>

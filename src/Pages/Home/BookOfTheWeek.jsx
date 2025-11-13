@@ -53,10 +53,10 @@ export default function BookGrid() {
         {books.map((book) => (
           <div
             key={book.id}
-            className="group relative bg-gray-800 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+            className="group relative bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
           >
             {/* Image Container */}
-            <div className="relative aspect-3/4 bg-gray-100 overflow-hidden">
+            <div className="relative aspect-3/4  overflow-hidden">
               <div>
                 <img
                   className="w-full object-cover"
@@ -77,7 +77,9 @@ export default function BookGrid() {
               <h3 className="font-medium line-clamp-2 min-h-10">
                 {book.title}
               </h3>
-              <p className="text-sm text-gray-500 mt-1">By: {book.author}</p>
+              <p className="text-sm mt-1 text-text-secondary">
+                By: {book.author}
+              </p>
 
               {/* Rating Stars */}
               <div className="flex items-center mt-2">
@@ -100,7 +102,7 @@ export default function BookGrid() {
               <div className="mt-3 flex items-center justify-between">
                 {book.price !== null ? (
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-gray-200">
+                    <span className="text-lg font-bold">
                       ${book.price.toFixed(2)}
                     </span>
                     {book.originalPrice && (

@@ -31,7 +31,7 @@ const AllBookAction = ({
           />
           <input
             onChange={(e) => handleBookSearch(e)}
-            className="bg-gray-800 w-full pl-10 pr-5 py-3.5 rounded-l-md outline-none 
+            className="bg-surface w-full pl-10 pr-5 py-3.5 rounded-l-md outline-none 
             border border-transparent focus:border-blue-500 focus:ring-0 transition-all duration-200"
             type="search"
             placeholder="Search by book title..."
@@ -48,7 +48,7 @@ const AllBookAction = ({
         <select
           id="sort"
           onChange={handleSort}
-          className="bg-gray-800 py-3.5 px-4 rounded-md outline-none border border-transparent focus:border-blue-500 focus:ring-0 transition-all duration-200"
+          className="bg-surface py-3.5 px-4 rounded-md outline-none border border-transparent focus:border-blue-500 focus:ring-0 transition-all duration-200"
           defaultValue=""
         >
           <option value="" disabled>

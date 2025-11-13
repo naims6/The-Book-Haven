@@ -28,7 +28,7 @@ function BookCard({ book, setBooks }) {
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300 pt-2">
+    <div className="bg-surface rounded-lg shadow-md overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300 pt-2">
       <div className="relative overflow-hidden">
         <img
           src={coverImage}

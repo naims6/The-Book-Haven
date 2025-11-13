@@ -26,7 +26,7 @@ const genres = [
 
 const TopGenres = () => {
   return (
-    <section className="py-10 md:px-10 bg-white dark:bg-gray-900">
+    <section className="py-10 md:px-10">
       <div className="container2">
         <Title2>Top Genres</Title2>
 

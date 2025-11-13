@@ -45,7 +45,7 @@ const Comment = ({ bookId }) => {
       <h2 className="text-3xl font-bold mb-8">Comments</h2>
 
       {/* Comment Form */}
-      <div className="mb-8 bg-gray-800 p-6 rounded-lg shadow">
+      <div className="mb-8 bg-surface p-6 rounded-lg shadow">
         <div className="flex gap-4">
           <img
             src={user.photoURL}

@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/AuthContex";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle, user } = use(AuthContext);
+  const { signInUser, signInWithGoogle } = use(AuthContext);
   const [loading, setLoading] = useState(false);
   const [goggleLoading, setGoggleLoading] = useState(false);
   const [err, setErr] = useState();
@@ -67,13 +67,9 @@ const Login = () => {
     });
   };
 
-  if (user) {
-    return <Navigate to="/"></Navigate>;
-  }
-
   return (
-    <div className="mt-16 h-[92vh] flex items-center justify-center bg-gray-900 text-gray-200">
-      <div className="max-w-md w-full bg-gray-800 text-base-200 p-8 rounded shadow mx-4">
+    <div className="mt-16 h-[92vh] flex items-center justify-center">
+      <div className="max-w-md w-full bg-surface border border-border  p-8 rounded shadow-md mx-4">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Login to Your Account
         </h2>

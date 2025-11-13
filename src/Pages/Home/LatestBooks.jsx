@@ -13,7 +13,7 @@ const LatestBooks = () => {
       <div className="flex justify-between items-center">
         <Title>Latest Books</Title>
         <Link to="/all-books">
-          <h2 className="text-base underline text-[#16513F]  dark:text-green-400 cursor-pointer">
+          <h2 className="text-base font-medium underline cursor-pointer">
             View All
           </h2>
         </Link>
@@ -29,7 +29,7 @@ const LatestBooks = () => {
               src={book.coverImage}
               alt="book cover image"
             />
-            <h2 className="text-center mt-4 font-medium cursor-pointer text-gray-700 dark:text-gray-200">
+            <h2 className="text-center text-text-secondary mt-4 font-medium cursor-pointer">
               {book.title}
             </h2>
           </div>

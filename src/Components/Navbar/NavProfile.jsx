@@ -42,7 +42,7 @@ const NavProfile = ({ user, handleSignOutUser }) => {
           <div
             className={`absolute ${
               isNavProfileOpen ? "right-0" : "hidden"
-            } w-[200px] group-hover:right-0 group-hover:block top-12 px-3 py-5 rounded-md bg-gray-800 border border-gray-600`}
+            } w-[200px] group-hover:right-0 group-hover:block top-12 px-3 py-5 rounded-md bg-surface border border-gray-600`}
           >
             <div className="flex gap-2 items-center">
               <img

@@ -16,7 +16,6 @@ const AllBook = () => {
   const handleSort = (e) => {
     const value = e.target.value;
     axiosInstance.get(`/all-books?sortBy=${value}`).then((data) => {
-      console.log(data.data);
       setBooks(data.data);
     });
   };

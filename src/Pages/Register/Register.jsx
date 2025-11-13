@@ -8,7 +8,7 @@ import Loading from "../Loading/Loading";
 
 const Register = () => {
   // getting data from context
-  const { user, createUser, signInWithGoogle, loading } = use(AuthContext);
+  const { createUser, signInWithGoogle, loading } = use(AuthContext);
   const [loginLoading, setLoginLoading] = useState(false);
   const [goggleLoading, setGoggleLoading] = useState(false);
 
@@ -111,10 +111,6 @@ const Register = () => {
     return <Loading />;
   }
 
-  if (user) {
-    return <Navigate to="/"></Navigate>;
-  }
-
   // handle user google login
   const handleGoogleSignIn = () => {
     setGoggleLoading(true);
@@ -126,8 +122,8 @@ const Register = () => {
   };
 
   return (
-    <div className="mt-16 h-[92vh] flex items-center justify-center bg-gray-900 text-gray-200">
-      <div className="max-w-md w-full bg-gray-800 text-base-200 p-8 rounded shadow mx-4">
+    <div className="mt-16 h-[92vh] flex items-center justify-center">
+      <div className="max-w-md w-full bg-surface border border-border p-8 rounded shadow-md mx-4">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Register Your Account
         </h2>
