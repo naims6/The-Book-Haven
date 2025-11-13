@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import { Outlet, ScrollRestoration } from "react-router";
 import Footer from "../Components/Footer";
+import ScrollProgress from "../Components/ScrollProgress";
 
 const RootLayout = () => {
   return (
@@ -11,6 +12,7 @@ const RootLayout = () => {
         <Outlet />
       </div>
       <Footer />
+      <ScrollProgress />
       <ScrollRestoration />
     </div>
   );
