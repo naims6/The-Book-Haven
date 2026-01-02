@@ -1,10 +1,12 @@
-import React from "react";
 import Banner from "./Banner";
 import LatestBooks from "./LatestBooks";
 import TopGenres from "./TopGenres";
-// import BookOfTheWeek from "./BookOfTheWeek";
 import BookGrid from "./BookOfTheWeek";
 import AboutSection from "./AboutSection";
+import StatisticSection from "./StatisticSection";
+import BlogSection from "./BlogSection";
+import FAQSection from "./FAQSection";
+import HighlightsSection from "./HightlightSection";
 
 const Home = () => {
   return (
@@ -14,6 +16,10 @@ const Home = () => {
       <LatestBooks />
       <BookGrid />
       <TopGenres />
+      <HighlightsSection />
+      <StatisticSection />
+      <BlogSection />
+      <FAQSection />
     </div>
   );
 };

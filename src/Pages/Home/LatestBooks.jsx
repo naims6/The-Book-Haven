@@ -1,11 +1,12 @@
 import React, { use } from "react";
 import axios from "axios";
-import Title from "../../Components/Title";
+
 import { Link } from "react-router";
 
 const fetcher = axios
-  .get("https://book-haven-server-two.vercel.app/latest-books")
+  .get("https://book-haven-server-snowy.vercel.app/latest-books")
   .then((data) => data.data);
+
 const LatestBooks = () => {
   const latestBooks = use(fetcher);
   return (

@@ -4,7 +4,7 @@ import axios from "axios";
 const useAxios = () => {
   const axiosInstance = useMemo(() => {
     return axios.create({
-      baseURL: "https://book-haven-server-two.vercel.app",
+      baseURL: "https://book-haven-server-snowy.vercel.app",
     });
   }, []);
 

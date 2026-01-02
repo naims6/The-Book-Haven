@@ -29,7 +29,7 @@ const AllBook = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
-    axiosInstance.get(`all-books/search?title=${searchTerm}`).then((data) => {
+    axiosInstance.get(`/all-books/search?title=${searchTerm}`).then((data) => {
       setBooks(data.data);
     });
   };
