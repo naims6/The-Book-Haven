@@ -48,7 +48,7 @@ const StatisticSection = () => {
   ];
   return (
     <section className="py-16" style={{ backgroundColor: "var(--color-bg)" }}>
-      <div className="container mx-auto px-4">
+      <div className="container2 mx-auto px-4">
         <div className="text-center mb-12">
           <Title2>By The Numbers</Title2>
 
@@ -60,7 +60,7 @@ const StatisticSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -110,7 +110,7 @@ const StatisticSection = () => {
 
         {/* Animated progress bars */}
         <div
-          className="max-w-4xl mx-auto mt-12 p-6 rounded-2xl"
+          className=" mt-12 p-6 rounded-2xl"
           style={{
             backgroundColor: "var(--color-surface)",
             border: "1px solid var(--color-border)",

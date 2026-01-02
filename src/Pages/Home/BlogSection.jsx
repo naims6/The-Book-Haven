@@ -59,7 +59,7 @@ const BlogSection = () => {
       className="py-16"
       style={{ backgroundColor: "var(--color-surface)" }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container2 mx-auto px-4">
         <div className="text-center mb-12">
           <div
             className="inline-flex items-center px-4 py-2 rounded-full mb-4"
@@ -87,7 +87,7 @@ const BlogSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div
               key={blog.id}

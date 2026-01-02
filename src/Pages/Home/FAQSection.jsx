@@ -39,7 +39,7 @@ const FAQSection = () => {
 
   return (
     <section className="py-16" style={{ backgroundColor: "var(--color-bg)" }}>
-      <div className="container mx-auto px-4">
+      <div className="container2 mx-auto px-4">
         <div className="text-center mb-12">
           <Title2>Frequently Asked Questions</Title2>
           <p
@@ -50,7 +50,7 @@ const FAQSection = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -92,69 +92,6 @@ const FAQSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Still have questions section */}
-        <div
-          className="max-w-3xl mx-auto mt-12 p-8 rounded-2xl text-center"
-          style={{
-            backgroundColor: "var(--color-surface)",
-            border: "1px solid var(--color-border)",
-          }}
-        >
-          <MessageSquare
-            className="w-12 h-12 mx-auto mb-4"
-            style={{ color: "var(--color-primary)" }}
-          />
-          <h3
-            className="text-2xl font-bold mb-3"
-            style={{ color: "var(--color-text-primary)" }}
-          >
-            Still have questions?
-          </h3>
-          <p
-            className="mb-6 max-w-lg mx-auto"
-            style={{ color: "var(--color-text-secondary)" }}
-          >
-            Can't find the answer you're looking for? Our support team is here
-            to help.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              className="px-6 py-3 rounded-lg font-medium transition-colors"
-              style={{
-                backgroundColor: "var(--color-primary)",
-                color: "white",
-              }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "var(--color-secondary)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.backgroundColor = "var(--color-primary)")
-              }
-            >
-              Contact Support
-            </button>
-            <button
-              className="px-6 py-3 rounded-lg font-medium transition-colors"
-              style={{
-                backgroundColor: "transparent",
-                color: "var(--color-primary)",
-                border: "2px solid var(--color-primary)",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--color-primary)";
-                e.currentTarget.style.color = "white";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "var(--color-primary)";
-              }}
-            >
-              Visit Help Center
-            </button>
-          </div>
         </div>
       </div>
     </section>
