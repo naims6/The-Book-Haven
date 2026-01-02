@@ -330,7 +330,7 @@ const SupportPage = () => {
                       }}
                     >
                       <div className="flex items-start mb-4">
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0"
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-4 shrink-0"
                           style={{ 
                             backgroundColor: 'var(--color-bg-muted)',
                             color: 'var(--color-primary)'
@@ -390,7 +390,7 @@ const SupportPage = () => {
                         >
                           {category.icon}
                         </div>
-                        <div className="flex-grow">
+                        <div className="grow">
                           <h3 className="font-semibold text-lg mb-1" style={{ color: 'var(--color-text-primary)' }}>
                             {category.title}
                           </h3>
@@ -635,7 +635,7 @@ const SupportPage = () => {
                       }}
                     >
                       <div className="flex items-start">
-                        <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0"
+                        <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0"
                           style={{ 
                             backgroundColor: 'var(--color-bg-muted)',
                             color: 'var(--color-primary)'
@@ -643,7 +643,7 @@ const SupportPage = () => {
                         >
                           {tutorial.icon}
                         </div>
-                        <div className="flex-grow">
+                        <div className="grow">
                           <div className="flex items-center justify-between mb-2">
                             <h3 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
                               {tutorial.title}

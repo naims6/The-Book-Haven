@@ -17,6 +17,11 @@ const Comment = ({ bookId }) => {
       return;
     }
 
+    if(!user) {
+      toast.error("Please Sign in !")
+      return
+    }
+
     const userComment = {
       bookId,
       userName: user.displayName,
@@ -48,7 +53,7 @@ const Comment = ({ bookId }) => {
       <div className="mb-8 bg-surface p-6 rounded-lg shadow">
         <div className="flex gap-4">
           <img
-            src={user.photoURL}
+            src={user?.photoURL}
             alt="Your profile image"
             className="size-12 rounded-full"
           />

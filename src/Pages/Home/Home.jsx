@@ -12,11 +12,11 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <AboutSection />
+      <HighlightsSection />
       <LatestBooks />
+      <AboutSection />
       <BookGrid />
       <TopGenres />
-      <HighlightsSection />
       <StatisticSection />
       <BlogSection />
       <FAQSection />

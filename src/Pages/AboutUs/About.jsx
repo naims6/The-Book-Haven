@@ -94,7 +94,7 @@ const AboutUs = () => {
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen mt-16"
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       {/* Hero Section */}

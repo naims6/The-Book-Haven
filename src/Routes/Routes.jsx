@@ -30,11 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-details/:id",
-        element: (
-          <PrivateRoute>
-            <BookDetailsPage></BookDetailsPage>
-          </PrivateRoute>
-        ),
+        element: <BookDetailsPage></BookDetailsPage>,
       },
       {
         path: "/book-update/:id",
@@ -62,12 +58,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about-us",
-        element: <AboutUs />
+        element: <AboutUs />,
       },
       {
         path: "/support",
-        element: <SupportPage />
-      }
+        element: <SupportPage />,
+      },
     ],
   },
   // auth layout

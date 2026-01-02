@@ -39,7 +39,7 @@ const AboutSection = () => {
       </div>
 
       {/* Features */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 container2 mx-auto">
         {features.map((feature, i) => (
           <div
             key={i}

@@ -57,7 +57,6 @@ const BlogSection = () => {
   return (
     <section
       className="py-16"
-      style={{ backgroundColor: "var(--color-surface)" }}
     >
       <div className="container2 mx-auto px-4">
         <div className="text-center mb-12">
