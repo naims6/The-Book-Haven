@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import BookDetailsPage from "../Pages/BookDetails/BookDetails";
 import UpdateBook from "../Pages/UpdateBook/UpdateBook";
 import AboutUs from "../Pages/AboutUs/About";
+import SupportPage from "../Pages/Support/SupportPage";
 
 export const router = createBrowserRouter([
   // main layout
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs />
+      },
+      {
+        path: "/support",
+        element: <SupportPage />
       }
     ],
   },

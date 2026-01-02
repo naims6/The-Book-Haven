@@ -73,6 +73,15 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          onClick={() => setIsMenuOpen(false)}
+          to="/support"
+          className="px-8 py-3 lg:px-5"
+        >
+          Support
+        </NavLink>
+      </li>
       {user && (
         <>
           {" "}
