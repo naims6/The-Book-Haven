@@ -13,6 +13,8 @@ import BookDetailsPage from "../Pages/BookDetails/BookDetails";
 import UpdateBook from "../Pages/UpdateBook/UpdateBook";
 import AboutUs from "../Pages/AboutUs/About";
 import SupportPage from "../Pages/Support/SupportPage";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
 export const router = createBrowserRouter([
   // main layout
@@ -65,6 +67,16 @@ export const router = createBrowserRouter([
         element: <SupportPage />,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        index: true,
+        Component: DashboardHome
+      }
+    ]
   },
   // auth layout
   {

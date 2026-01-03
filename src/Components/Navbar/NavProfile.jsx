@@ -55,7 +55,8 @@ const NavProfile = ({ user, handleSignOutUser }) => {
             <div>
               <ul className="mt-5 mb-3">
                 <li className="py-2 cursor-pointer">Profile</li>
-                <li className="py-2 cursor-pointer">Bookmark</li>
+                <li><Link to={"/dashboard"} className="py-2 cursor-pointer">Dashboard</Link></li>
+                <li className="py-2 cursor-pointer">My Books</li>
                 <li className="py-2 cursor-pointer">Settings</li>
               </ul>
             </div>
