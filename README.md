@@ -11,7 +11,8 @@ Built with **React**, **Tailwind CSS**, **Firebase Auth**, **Node.js**, **Expres
 
 ## 🚀 Live Demo
 
-🔗 **[View Live Site]([https://the-book-haven-dusky.vercel.app/])**
+🔗 **[View Live Site](https://the-book-haven-dusky.vercel.app/)**
+
 
 ---
 
