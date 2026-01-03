@@ -48,6 +48,19 @@ Built with **React**, **Tailwind CSS**, **Firebase Auth**, **Node.js**, **Expres
 
 ---
 
+📊 Professional Dashboard (Single Role - User)
+Dedicated dashboard layout with navbar and sidebar
+
+Dashboard Overview with statistics cards
+
+Dynamic charts showing reading progress
+
+Profile page with editable information
+
+Minimum 5 menu items in sidebar navigation
+
+Private CRUD pages inside dashboard only
+
 ## 🛠️ Tech Stack
 
 | Category                    | Technologies                               |
