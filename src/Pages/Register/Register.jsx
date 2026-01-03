@@ -259,7 +259,7 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
   const demoCredentials = {
     name: "Naim Sorker",
     photoURL: "https://api.dicebear.com/7.x/avataaars/svg?seed=Demo",
-    email: "naim1@gmail.com",
+    email: "naim3@gmail.com",
     password: "Naim@123"
   };
 

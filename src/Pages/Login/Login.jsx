@@ -182,7 +182,7 @@ const Login = () => {
 
   // Demo credentials
   const demoCredentials = {
-    email: "naim1@gmail.com",
+    email: "naim@gmail.com",
     password: "Naim@123"
   };
 
