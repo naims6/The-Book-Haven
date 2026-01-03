@@ -227,7 +227,6 @@
 
 // export default Register;
 
-
 import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContex";
@@ -243,11 +242,11 @@ import {
   Image,
   Check,
   ArrowRight,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 
 const Register = () => {
-const { createUser, signInWithGoogle, loading } = use(AuthContext);
+  const { createUser, signInWithGoogle, loading } = use(AuthContext);
   const [loginLoading, setLoginLoading] = useState(false);
   const [goggleLoading, setGoggleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -258,9 +257,10 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
   // Demo credentials for quick testing
   const demoCredentials = {
     name: "Naim Sorker",
-    photoURL: "https://api.dicebear.com/7.x/avataaars/svg?seed=Demo",
+    photoURL:
+      "https://res.cloudinary.com/dynxnpj21/image/upload/v1767092298/fullstack-developer_mnd8ah.jpg",
     email: "naim3@gmail.com",
-    password: "Naim@123"
+    password: "Naim@123",
   };
 
   const fillDemoCredentials = () => {
@@ -277,19 +277,23 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
   const validateForm = (data) => {
     if (!data.name.trim()) return "Full name is required";
     if (data.name.length < 2) return "Name must be at least 2 characters";
-    
+
     if (!data.photoURL.trim()) return "Photo URL is required";
-    if (!/^https?:\/\/.+/.test(data.photoURL)) return "Please enter a valid URL";
-    
+    if (!/^https?:\/\/.+/.test(data.photoURL))
+      return "Please enter a valid URL";
+
     if (!data.email.trim()) return "Email is required";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return "Invalid email address";
-    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
+      return "Invalid email address";
+
     if (!data.password) return "Password is required";
-    if (data.password.length < 6) return "Password must be at least 6 characters";
-    if (!/(?=.*[A-Z])(?=.*[a-z])/.test(data.password)) return "Password must contain uppercase and lowercase letters";
-    
+    if (data.password.length < 6)
+      return "Password must be at least 6 characters";
+    if (!/(?=.*[A-Z])(?=.*[a-z])/.test(data.password))
+      return "Password must contain uppercase and lowercase letters";
+
     if (!acceptedTerms) return "Please accept the terms and conditions";
-    
+
     return "";
   };
 
@@ -303,7 +307,7 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
       name: form.name.value.trim(),
       photoURL: form.photoURL.value.trim(),
       email: form.email.value.trim(),
-      password: form.password.value
+      password: form.password.value,
     };
 
     // Validate form
@@ -379,57 +383,67 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
   }
 
   return (
-    <div className="flex items-center justify-center p-4 mt-16 pb-12"
-      style={{ backgroundColor: 'var(--color-bg)' }}
+    <div
+      className="flex items-center justify-center p-4 mt-16 pb-12"
+      style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
+          <h1
+            className="text-3xl font-bold mb-2"
+            style={{ color: "var(--color-text-primary)" }}
+          >
             Create Account
           </h1>
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+          <p style={{ color: "var(--color-text-secondary)" }}>
             Join The Book Haven community
           </p>
         </div>
 
         {/* Main Form Card */}
-        <div className="p-8 rounded-2xl"
-          style={{ 
-            backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-border)',
-            boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
+        <div
+          className="p-8 rounded-2xl"
+          style={{
+            backgroundColor: "var(--color-surface)",
+            border: "1px solid var(--color-border)",
+            boxShadow: "0 10px 40px rgba(0,0,0,0.1)",
           }}
         >
           {/* Demo Button */}
           <button
             onClick={fillDemoCredentials}
             className="w-full mb-6 p-4 rounded-xl flex items-center justify-center gap-3 transition-all hover:scale-[1.02]"
-            style={{ 
-              backgroundColor: 'var(--color-bg-muted)',
-              border: '2px dashed var(--color-border)'
+            style={{
+              backgroundColor: "var(--color-bg-muted)",
+              border: "2px dashed var(--color-border)",
             }}
           >
-            <div className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ 
-                backgroundColor: 'var(--color-primary)',
-                color: 'white'
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center"
+              style={{
+                backgroundColor: "var(--color-primary)",
+                color: "white",
               }}
             >
               <Sparkles className="w-4 h-4" />
             </div>
-            <span className="font-medium" style={{ color: 'var(--color-text-primary)' }}>
+            <span
+              className="font-medium"
+              style={{ color: "var(--color-text-primary)" }}
+            >
               Use Demo Credentials
             </span>
           </button>
 
           {/* Error Message */}
           {err && (
-            <div className="mb-6 p-3 rounded-lg text-center"
-              style={{ 
-                backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid #f87171',
-                color: '#ef4444'
+            <div
+              className="mb-6 p-3 rounded-lg text-center"
+              style={{
+                backgroundColor: "rgba(239, 68, 68, 0.1)",
+                border: "1px solid #f87171",
+                color: "#ef4444",
               }}
             >
               {err}
@@ -439,14 +453,16 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
           <form onSubmit={handleUserCreateAccount} className="space-y-5">
             {/* Name Field */}
             <div>
-              <label className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
+              <label
+                className="block text-sm font-medium mb-2"
+                style={{ color: "var(--color-text-primary)" }}
               >
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
-                  style={{ color: 'var(--color-text-muted)' }}
+                <User
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
+                  style={{ color: "var(--color-text-muted)" }}
                 />
                 <input
                   type="text"
@@ -454,10 +470,10 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
                   placeholder="John Doe"
                   required
                   className="w-full pl-10 pr-4 py-3 rounded-lg focus:outline-none focus:ring-2"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg)',
-                    border: '1px solid var(--color-border)',
-                    color: 'var(--color-text-primary)'
+                  style={{
+                    backgroundColor: "var(--color-bg)",
+                    border: "1px solid var(--color-border)",
+                    color: "var(--color-text-primary)",
                   }}
                 />
               </div>
@@ -465,14 +481,16 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
 
             {/* Photo URL */}
             <div>
-              <label className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
+              <label
+                className="block text-sm font-medium mb-2"
+                style={{ color: "var(--color-text-primary)" }}
               >
                 Profile Photo URL
               </label>
               <div className="relative">
-                <Image className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
-                  style={{ color: 'var(--color-text-muted)' }}
+                <Image
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
+                  style={{ color: "var(--color-text-muted)" }}
                 />
                 <input
                   type="url"
@@ -480,10 +498,10 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
                   placeholder="https://example.com/photo.jpg"
                   required
                   className="w-full pl-10 pr-4 py-3 rounded-lg focus:outline-none focus:ring-2"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg)',
-                    border: '1px solid var(--color-border)',
-                    color: 'var(--color-text-primary)'
+                  style={{
+                    backgroundColor: "var(--color-bg)",
+                    border: "1px solid var(--color-border)",
+                    color: "var(--color-text-primary)",
                   }}
                 />
               </div>
@@ -491,14 +509,16 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
+              <label
+                className="block text-sm font-medium mb-2"
+                style={{ color: "var(--color-text-primary)" }}
               >
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
-                  style={{ color: 'var(--color-text-muted)' }}
+                <Mail
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
+                  style={{ color: "var(--color-text-muted)" }}
                 />
                 <input
                   type="email"
@@ -506,10 +526,10 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
                   placeholder="you@example.com"
                   required
                   className="w-full pl-10 pr-4 py-3 rounded-lg focus:outline-none focus:ring-2"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg)',
-                    border: '1px solid var(--color-border)',
-                    color: 'var(--color-text-primary)'
+                  style={{
+                    backgroundColor: "var(--color-bg)",
+                    border: "1px solid var(--color-border)",
+                    color: "var(--color-text-primary)",
                   }}
                 />
               </div>
@@ -517,14 +537,16 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
+              <label
+                className="block text-sm font-medium mb-2"
+                style={{ color: "var(--color-text-primary)" }}
               >
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
-                  style={{ color: 'var(--color-text-muted)' }}
+                <Lock
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
+                  style={{ color: "var(--color-text-muted)" }}
                 />
                 <input
                   type={showPassword ? "text" : "password"}
@@ -532,22 +554,29 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
                   placeholder="••••••••"
                   required
                   className="w-full pl-10 pr-12 py-3 rounded-lg focus:outline-none focus:ring-2"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg)',
-                    border: '1px solid var(--color-border)',
-                    color: 'var(--color-text-primary)'
+                  style={{
+                    backgroundColor: "var(--color-bg)",
+                    border: "1px solid var(--color-border)",
+                    color: "var(--color-text-primary)",
                   }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2"
-                  style={{ color: 'var(--color-text-muted)' }}
+                  style={{ color: "var(--color-text-muted)" }}
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
-              <div className="mt-2 text-xs" style={{ color: 'var(--color-text-muted)' }}>
+              <div
+                className="mt-2 text-xs"
+                style={{ color: "var(--color-text-muted)" }}
+              >
                 • At least 6 characters • Uppercase & lowercase
               </div>
             </div>
@@ -557,22 +586,41 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
               <button
                 type="button"
                 onClick={() => setAcceptedTerms(!acceptedTerms)}
-                className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 transition-all ${acceptedTerms ? 'scale-110' : ''}`}
-                style={{ 
-                  backgroundColor: acceptedTerms ? 'var(--color-primary)' : 'var(--color-bg)',
-                  border: `2px solid ${acceptedTerms ? 'var(--color-primary)' : 'var(--color-border)'}`,
-                  color: 'white'
+                className={`w-5 h-5 rounded flex items-center justify-center shrink-0 transition-all ${
+                  acceptedTerms ? "scale-110" : ""
+                }`}
+                style={{
+                  backgroundColor: acceptedTerms
+                    ? "var(--color-primary)"
+                    : "var(--color-bg)",
+                  border: `2px solid ${
+                    acceptedTerms
+                      ? "var(--color-primary)"
+                      : "var(--color-border)"
+                  }`,
+                  color: "white",
                 }}
               >
                 {acceptedTerms && <Check className="w-3 h-3" />}
               </button>
-              <label className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+              <label
+                className="text-sm"
+                style={{ color: "var(--color-text-secondary)" }}
+              >
                 I agree to the{" "}
-                <Link to="/terms" className="font-medium hover:underline" style={{ color: 'var(--color-primary)' }}>
+                <Link
+                  to="/terms"
+                  className="font-medium hover:underline"
+                  style={{ color: "var(--color-primary)" }}
+                >
                   Terms
                 </Link>{" "}
                 and{" "}
-                <Link to="/privacy" className="font-medium hover:underline" style={{ color: 'var(--color-primary)' }}>
+                <Link
+                  to="/privacy"
+                  className="font-medium hover:underline"
+                  style={{ color: "var(--color-primary)" }}
+                >
                   Privacy Policy
                 </Link>
               </label>
@@ -583,12 +631,19 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
               type="submit"
               disabled={loginLoading}
               className="w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed"
-              style={{ 
-                backgroundColor: 'var(--color-primary)',
-                color: 'white'
+              style={{
+                backgroundColor: "var(--color-primary)",
+                color: "white",
               }}
-              onMouseOver={(e) => !loginLoading && (e.currentTarget.style.backgroundColor = 'var(--color-secondary)')}
-              onMouseOut={(e) => !loginLoading && (e.currentTarget.style.backgroundColor = 'var(--color-primary)')}
+              onMouseOver={(e) =>
+                !loginLoading &&
+                (e.currentTarget.style.backgroundColor =
+                  "var(--color-secondary)")
+              }
+              onMouseOut={(e) =>
+                !loginLoading &&
+                (e.currentTarget.style.backgroundColor = "var(--color-primary)")
+              }
             >
               {loginLoading ? (
                 <>
@@ -606,10 +661,19 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
             {/* Divider */}
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t" style={{ borderColor: 'var(--color-border)' }}></div>
+                <div
+                  className="w-full border-t"
+                  style={{ borderColor: "var(--color-border)" }}
+                ></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-3" style={{ backgroundColor: 'var(--color-surface)', color: 'var(--color-text-muted)' }}>
+                <span
+                  className="px-3"
+                  style={{
+                    backgroundColor: "var(--color-surface)",
+                    color: "var(--color-text-muted)",
+                  }}
+                >
                   Or
                 </span>
               </div>
@@ -621,10 +685,10 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
               onClick={handleGoogleSignIn}
               disabled={goggleLoading}
               className="w-full py-3 rounded-lg font-medium flex items-center justify-center gap-3 transition-all hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed"
-              style={{ 
-                backgroundColor: 'var(--color-bg)',
-                border: '1px solid var(--color-border)',
-                color: 'var(--color-text-primary)'
+              style={{
+                backgroundColor: "var(--color-bg)",
+                border: "1px solid var(--color-border)",
+                color: "var(--color-text-primary)",
               }}
             >
               {goggleLoading ? (
@@ -643,13 +707,16 @@ const { createUser, signInWithGoogle, loading } = use(AuthContext);
           </form>
 
           {/* Login Link */}
-          <div className="text-center mt-6 pt-6 border-t" style={{ borderColor: 'var(--color-border)' }}>
-            <p style={{ color: 'var(--color-text-secondary)' }}>
+          <div
+            className="text-center mt-6 pt-6 border-t"
+            style={{ borderColor: "var(--color-border)" }}
+          >
+            <p style={{ color: "var(--color-text-secondary)" }}>
               Already have an account?{" "}
-              <Link 
-                to="/auth/login" 
+              <Link
+                to="/auth/login"
                 className="font-medium hover:underline"
-                style={{ color: 'var(--color-primary)' }}
+                style={{ color: "var(--color-primary)" }}
               >
                 Sign in
               </Link>
