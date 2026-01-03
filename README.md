@@ -11,7 +11,7 @@ Built with **React**, **Tailwind CSS**, **Firebase Auth**, **Node.js**, **Expres
 
 ## 🚀 Live Demo
 
-🔗 **[View Live Site](https://thebookhaven-c1738.web.app/)**
+🔗 **[View Live Site]([https://thebookhaven-c1738.web.app/](https://the-book-haven-dusky.vercel.app/))**
 
 ---
 
